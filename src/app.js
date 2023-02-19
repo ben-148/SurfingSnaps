@@ -18,6 +18,7 @@ const navRegisterPageLink = document.getElementById("nav-register-page");
 const navLoginPageLink = document.getElementById("nav-login-page");
 const navEditProfilePage = document.getElementById("nav-edit-profile-page");
 const navLogout = document.getElementById("nav-logout");
+const navLogo = document.getElementById("logo");
 
 window.addEventListener("load", () => {
   initializeNavbar(showNewPopup);
@@ -26,6 +27,10 @@ window.addEventListener("load", () => {
     user = JSON.parse(user);
     navEditProfilePage.innerText = user.name;
   }
+});
+
+navLogo.addEventListener("click", function () {
+  handlePageChange(PAGES.HOME);
 });
 
 navHomeLink.addEventListener("click", function () {
