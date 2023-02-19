@@ -277,7 +277,18 @@
       <div id="register-page" class="d-none">
         <h1>Register page</h1>
 
-        <form class="row g-3">
+        <form class="row g-3" onsubmit="event.preventDefault()">
+
+          <div class="form-floating mb-3 col-md-3">
+            <input type="text" class="form-control" id="register-input-name" placeholder="Your name" />
+            <label for="register-input-name">Name</label>
+          </div>
+
+          <div class="alert alert-danger d-none" role="alert" id="register-alert-name">
+            Name rules
+          </div>
+
+
           <div class="col-md-4">
             <label for="validationDefault01" class="form-label">First name</label>
             <input type="text" class="form-control" id="validationDefault01" required>
@@ -289,7 +300,7 @@
           <h5>address</h5>
           <div class="col-md-3">
             <label for="validationDefault03" class="form-label">State</label>
-            <input type="text" class="form-control" id="validationDefault03" required>
+            <input type="text" class="form-control" id="validationDefault03">
           </div>
           <div class="col-md-3">
             <label for="validationDefault04" class="form-label">Country</label>
@@ -317,40 +328,43 @@
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
               <label class="form-check-label" for="invalidCheck2">
-                Agree to terms and conditions
+                Are you a buissenes coustumer?
               </label>
             </div>
           </div>
-          <div class="col-12">
+          <!--           <div class="col-12">
             <button class="btn btn-primary" type="submit">Submit form</button>
           </div>
         </form>
 
         <form onsubmit="event.preventDefault()">
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="register-input-name" placeholder="Your name" />
-            <label for="register-input-name">Name</label>
-          </div>
-          <div class="alert alert-danger d-none" role="alert" id="register-alert-name">
-            Name rules
-          </div>
-          <div class="form-floating mb-3">
+ -->
+          <h5>Contact</h5>
+          <div class="form-floating mb-3 col-md-6">
             <input type="email" class="form-control" id="register-input-email" placeholder="name@example.com" />
             <label for="register-input-email">Email address</label>
           </div>
           <div class="alert alert-danger d-none" role="alert" id="register-alert-email">
             Email rules
           </div>
+          <div class="form-floating mb-3 col-md-6">
+            <input type="email" class="form-control" id="register-input-phone" placeholder="name@example.com" />
+            <label for="register-input-phone">Phone Number</label>
+          </div>
+
+
           <div class="form-floating">
             <input type="password" class="form-control" id="register-input-password" placeholder="Password" />
             <label for="register-input-password">Password</label>
           </div>
           <div class="alert alert-danger d-none" role="alert" id="register-alert-password">
-            Name rules
+            password rules
           </div>
-          <button class="btn btn-danger" disabled="true" id="register-btn">
-            Register
-          </button>
+          <div class="col-12">
+            <button class="btn btn-danger" disabled="true" id="register-btn">
+              Register
+            </button>
+          </div>
         </form>
       </div>
       <!-- login page -->
