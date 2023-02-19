@@ -77,25 +77,6 @@ const checkEmailInput = () => {
   checkIfCanEnableBtn();
 };
 
-// const checkEmailInput = () => {
-//   const reg = new RegExp(
-//     "^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$",
-//     "ig"
-//   );
-//   if (reg.test(inputEmail.value)) {
-//     //the text is ok
-//     inputEmail.classList.remove("is-invalid");
-//     document.getElementById("register-alert-email").classList.add("d-none");
-//     emailOk = true;
-//   } else {
-//     //the text is not ok
-//     inputEmail.classList.add("is-invalid");
-//     document.getElementById("register-alert-email").classList.remove("d-none");
-//     emailOk = false;
-//   }
-//   checkIfCanEnableBtn();
-// };
-
 const checkPasswordInput = () => {
   let errorArr = validatePassword(inputPassword.value);
   if (errorArr.length === 0) {
