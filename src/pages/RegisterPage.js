@@ -6,18 +6,23 @@ import validateName from "../validation/validateName.js";
 import User from "../models/User.js";
 import showToast from "../services/Toast.js";
 
-const inputName = document.getElementById("register-input-name");
+const inputFirstName = document.getElementById("register-input-fname");
+const inputLastName = document.getElementById("register-input-lname");
 const inputEmail = document.getElementById("register-input-email");
 const inputPassword = document.getElementById("register-input-password");
 const btnRegister = document.querySelector("#register-btn");
 
-let nameOk = false;
+let fNameOk = false;
+let lNameOk = false;
 let emailOk = false;
 let passwordOk = false;
 
 window.addEventListener("load", () => {
   //when page loaded
-  if (inputName.value !== "") {
+  if (inputFirstName.value !== "") {
+    checkNameInput();
+  }
+  if (inputLastName.value !== "") {
     checkNameInput();
   }
   if (inputEmail.value !== "") {
@@ -28,8 +33,11 @@ window.addEventListener("load", () => {
   }
 });
 
-inputName.addEventListener("input", () => {
+inputFirstName.addEventListener("input", () => {
   checkNameInput();
+});
+inputLastName.addEventListener("input", () => {
+  checkLastNameInput();
 });
 
 inputEmail.addEventListener("input", () => {
@@ -41,20 +49,37 @@ inputPassword.addEventListener("input", () => {
 });
 
 const checkNameInput = () => {
-  let errorArr = validateName(inputName.value);
-  //   console.log(reg.test(inputName.value));
+  let errorArr = validateName(inputFirstName.value);
+  //   console.log(reg.test(inputFirstName.value));
   if (errorArr.length === 0) {
     //the text is ok
-    inputName.classList.remove("is-invalid");
+    inputFirstName.classList.remove("is-invalid");
     document.getElementById("register-alert-name").classList.add("d-none");
-    nameOk = true;
+    fNameOk = true;
   } else {
     //the text is not ok
-    inputName.classList.add("is-invalid");
+    inputFirstName.classList.add("is-invalid");
     document.getElementById("register-alert-name").classList.remove("d-none");
     document.getElementById("register-alert-name").innerHTML =
       errorArr.join("<br>");
-    nameOk = false;
+    fNameOk = false;
+  }
+  checkIfCanEnableBtn();
+};
+const checkLastNameInput = () => {
+  let errorArr = validateName(inputLastName.value);
+  if (errorArr.length === 0) {
+    //the text is ok
+    inputLastName.classList.remove("is-invalid");
+    document.getElementById("register-alert-lname").classList.add("d-none");
+    lNameOk = true;
+  } else {
+    //the text is not ok
+    inputLastName.classList.add("is-invalid");
+    document.getElementById("register-alert-lname").classList.remove("d-none");
+    document.getElementById("register-alert-lname").innerHTML =
+      errorArr.join("<br>");
+    lNameOk = false;
   }
   checkIfCanEnableBtn();
 };
@@ -98,10 +123,10 @@ const checkPasswordInput = () => {
 };
 
 const checkIfCanEnableBtn = () =>
-  (btnRegister.disabled = !(nameOk && emailOk && passwordOk));
+  (btnRegister.disabled = !(fNameOk && emailOk && passwordOk));
 
 // const checkIfCanEnableBtn = () => {
-//   if (nameOk && emailOk && passwordOk) {
+//   if (fNameOk && emailOk && passwordOk) {
 //     btnRegister.disabled = false;
 //   } else {
 //     btnRegister.disabled = true;
@@ -109,7 +134,7 @@ const checkIfCanEnableBtn = () =>
 // };
 
 btnRegister.addEventListener("click", () => {
-  if (!(nameOk && emailOk && passwordOk)) {
+  if (!(fNameOk && lNameOk && emailOk && passwordOk)) {
     //if someone changed the html from dev tools
     return;
   }
@@ -118,7 +143,7 @@ btnRegister.addEventListener("click", () => {
   nextUserId = +nextUserId;
   let newUser = new User(
     nextUserId++,
-    inputName.value,
+    inputFirstName.value,
     inputEmail.value,
     inputPassword.value
   );
@@ -126,7 +151,7 @@ btnRegister.addEventListener("click", () => {
   if (!users) {
     //the first user
     users = [newUser];
-    // let user = new User(inputName.value, inputEmail.value, inputPassword.value);
+    // let user = new User(inputFirstName.value, inputEmail.value, inputPassword.value);
     // users = [user]
     localStorage.setItem("users", JSON.stringify(users));
     /*
