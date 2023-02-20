@@ -13,6 +13,7 @@ const inputPassword = document.getElementById("register-input-password");
 const inputConfirmPassword = document.getElementById(
   "register-input-confirm-password"
 );
+const AdminCheckBox = document.getElementById("check-box-admin");
 const btnRegister = document.querySelector("#register-btn");
 
 let fNameOk = false;
@@ -53,7 +54,6 @@ inputPassword.addEventListener("input", () => {
 });
 
 inputConfirmPassword.addEventListener("input", () => {
-  console.log("working");
   if (inputPassword.value === inputConfirmPassword.value) {
     confirmPasswordOk = true;
     document.getElementById("register-alert-cpassword").classList.add("d-none");
@@ -174,6 +174,9 @@ btnRegister.addEventListener("click", () => {
     inputEmail.value,
     inputPassword.value
   );
+  if (AdminCheckBox.checked) {
+    newUser.isAdmin = true;
+  }
   localStorage.setItem("nextUserId", nextUserId + "");
   if (!users) {
     //the first user
