@@ -71,7 +71,7 @@ loginBtn.addEventListener("click", () => {
     "token",
     JSON.stringify({
       id: user.id,
-      name: user.name,
+      name: user.firstname,
       email: user.email,
       isAdmin: user.isAdmin,
     })

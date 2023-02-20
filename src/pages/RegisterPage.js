@@ -144,6 +144,7 @@ btnRegister.addEventListener("click", () => {
   let newUser = new User(
     nextUserId++,
     inputFirstName.value,
+    inputLastName.value,
     inputEmail.value,
     inputPassword.value
   );
