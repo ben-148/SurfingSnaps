@@ -362,14 +362,25 @@
             <label for="register-input-phone">Phone Number</label>
           </div>
 
+          <h5>securety</h5>
 
-          <div class="form-floating">
+          <div class="form-floating col-md-3">
             <input type="password" class="form-control" id="register-input-password" placeholder="Password" />
             <label for="register-input-password">Password</label>
           </div>
-          <div class="alert alert-danger d-none" role="alert" id="register-alert-password">
+          <div class="alert alert-danger d-none col-md-3" role="alert" id="register-alert-password">
             password rules
           </div>
+
+          <div class="form-floating col-md-3">
+            <input type="password" class="form-control" id="register-input-confirm-password" placeholder="Password" />
+            <label for="register-input-confirm-password">Confirm Password</label>
+          </div>
+          <div class="alert alert-danger d-none col-md-3 " role="alert" id="register-alert-cpassword">
+            password rules
+          </div>
+
+
           <div class="col-12">
             <button class="btn btn-danger" disabled="true" id="register-btn">
               Register

@@ -10,12 +10,16 @@ const inputFirstName = document.getElementById("register-input-fname");
 const inputLastName = document.getElementById("register-input-lname");
 const inputEmail = document.getElementById("register-input-email");
 const inputPassword = document.getElementById("register-input-password");
+const inputConfirmPassword = document.getElementById(
+  "register-input-confirm-password"
+);
 const btnRegister = document.querySelector("#register-btn");
 
 let fNameOk = false;
 let lNameOk = false;
 let emailOk = false;
 let passwordOk = false;
+let confirmPasswordOk = false;
 
 window.addEventListener("load", () => {
   //when page loaded
@@ -46,6 +50,22 @@ inputEmail.addEventListener("input", () => {
 
 inputPassword.addEventListener("input", () => {
   checkPasswordInput();
+});
+
+inputConfirmPassword.addEventListener("input", () => {
+  console.log("working");
+  if (inputPassword.value === inputConfirmPassword.value) {
+    confirmPasswordOk = true;
+    document.getElementById("register-alert-cpassword").classList.add("d-none");
+  } else {
+    document
+      .getElementById("register-alert-cpassword")
+      .classList.remove("d-none");
+    document.getElementById("register-alert-cpassword").innerHTML = "not equal";
+    confirmPasswordOk = false;
+  }
+
+  checkIfCanEnableBtn();
 });
 
 const checkNameInput = () => {
@@ -123,7 +143,13 @@ const checkPasswordInput = () => {
 };
 
 const checkIfCanEnableBtn = () =>
-  (btnRegister.disabled = !(fNameOk && emailOk && passwordOk));
+  (btnRegister.disabled = !(
+    fNameOk &&
+    lNameOk &&
+    emailOk &&
+    passwordOk &&
+    confirmPasswordOk
+  ));
 
 // const checkIfCanEnableBtn = () => {
 //   if (fNameOk && emailOk && passwordOk) {
@@ -134,7 +160,7 @@ const checkIfCanEnableBtn = () =>
 // };
 
 btnRegister.addEventListener("click", () => {
-  if (!(fNameOk && lNameOk && emailOk && passwordOk)) {
+  if (!(fNameOk && lNameOk && emailOk && passwordOk && confirmPasswordOk)) {
     //if someone changed the html from dev tools
     return;
   }
