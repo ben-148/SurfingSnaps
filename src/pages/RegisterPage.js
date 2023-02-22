@@ -24,6 +24,7 @@ const btnRegister = document.querySelector("#register-btn");
 
 let fNameOk = false;
 let lNameOk = false;
+let addresNamesOk = true;
 let emailOk = false;
 let passwordOk = false;
 let confirmPasswordOk = false;
@@ -35,6 +36,18 @@ window.addEventListener("load", () => {
   }
   if (inputLastName.value !== "") {
     checkLastNameInput();
+  }
+  if (stateInput.value !== "") {
+    checkAdressNamesInput(stateInput, "stateInputAlert");
+  }
+  if (countryInput.value !== "") {
+    checkAdressNamesInput();
+  }
+  if (cityInput.value !== "") {
+    checkAdressNamesInput();
+  }
+  if (streetInput.value !== "") {
+    checkAdressNamesInput();
   }
   if (inputEmail.value !== "") {
     checkEmailInput();
@@ -49,6 +62,10 @@ inputFirstName.addEventListener("input", () => {
 });
 inputLastName.addEventListener("input", () => {
   checkLastNameInput();
+});
+
+stateInput.addEventListener("input", function () {
+  checkAdressNamesInput(stateInput, "stateInputAlert");
 });
 
 inputEmail.addEventListener("input", () => {
@@ -109,6 +126,25 @@ const checkLastNameInput = () => {
   }
   checkIfCanEnableBtn();
 };
+const checkAdressNamesInput = (inputName, alertDivId) => {
+  let errorArr = validateName(inputName.value);
+  if (errorArr.length === 0 || inputName.value.length < 1) {
+    // the text is ok
+    inputName.classList.remove("is-invalid");
+    document.getElementById(alertDivId).classList.add("d-none");
+
+    addresNamesOk = true;
+  } else {
+    // the text is not ok
+    inputName.classList.add("is-invalid");
+    document.getElementById(alertDivId).classList.remove("d-none");
+    document.getElementById(alertDivId).innerHTML =
+      "Capital first letter. At least two letters";
+    addresNamesOk = false;
+  }
+
+  checkIfCanEnableBtn();
+};
 
 const checkEmailInput = () => {
   let errorArr = validateEmail(inputEmail.value);
@@ -154,7 +190,8 @@ const checkIfCanEnableBtn = () =>
     lNameOk &&
     emailOk &&
     passwordOk &&
-    confirmPasswordOk
+    confirmPasswordOk &&
+    addresNamesOk
   ));
 
 // const checkIfCanEnableBtn = () => {
