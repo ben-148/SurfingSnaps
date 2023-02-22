@@ -13,6 +13,12 @@ const inputPassword = document.getElementById("register-input-password");
 const inputConfirmPassword = document.getElementById(
   "register-input-confirm-password"
 );
+const stateInput = document.getElementById("stateInput");
+const countryInput = document.getElementById("countryInput");
+const cityInput = document.getElementById("cityInput");
+const streetInput = document.getElementById("streetInput");
+const homeNumberInput = document.getElementById("homeNumberInput");
+const zipInput = document.getElementById("zipInput");
 const AdminCheckBox = document.getElementById("check-box-admin");
 const btnRegister = document.querySelector("#register-btn");
 
@@ -25,10 +31,10 @@ let confirmPasswordOk = false;
 window.addEventListener("load", () => {
   //when page loaded
   if (inputFirstName.value !== "") {
-    checkNameInput();
+    checkFirstNameInput();
   }
   if (inputLastName.value !== "") {
-    checkNameInput();
+    checkLastNameInput();
   }
   if (inputEmail.value !== "") {
     checkEmailInput();
@@ -39,7 +45,7 @@ window.addEventListener("load", () => {
 });
 
 inputFirstName.addEventListener("input", () => {
-  checkNameInput();
+  checkFirstNameInput();
 });
 inputLastName.addEventListener("input", () => {
   checkLastNameInput();
@@ -68,7 +74,7 @@ inputConfirmPassword.addEventListener("input", () => {
   checkIfCanEnableBtn();
 });
 
-const checkNameInput = () => {
+const checkFirstNameInput = () => {
   let errorArr = validateName(inputFirstName.value);
   //   console.log(reg.test(inputFirstName.value));
   if (errorArr.length === 0) {

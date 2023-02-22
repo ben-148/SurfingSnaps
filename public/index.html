@@ -145,11 +145,11 @@
         <div class="carusel d-none" id="propertiesCarusel">
           <div class="img-container" id="home-page-properties-carousel"></div>
           <div class="d-flex justify-content-around">
-            <button type="button" class="btn btn-primary" id="back-carusel-btn">
-              <i class="bi bi-arrow-left"></i>
+            <button type="button" class="btn btn-outline-info my-3" id="back-carusel-btn">
+              <i class="bi bi-caret-left-fill"></i>
             </button>
-            <button type="button" class="btn btn-primary" id="next-carusel-btn">
-              <i class="bi bi-arrow-right"></i>
+            <button type="button" class="btn btn-outline-info my-3" id="next-carusel-btn">
+              <i class="bi bi-caret-right-fill"></i>
             </button>
           </div>
         </div>
@@ -281,7 +281,7 @@
 
           <div class="form-floating mb-3 col-md-3">
             <input type="text" class="form-control" id="register-input-fname" placeholder="Your name" />
-            <label for="register-input-fname">First Name</label>
+            <label for="register-input-fname">First Name <span class="text-danger">*</span></label>
           </div>
 
           <div class="alert alert-danger d-none col-md-2" role="alert" id="register-alert-name">
@@ -289,8 +289,8 @@
           </div>
 
           <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="register-input-lname" placeholder="Your Last Name" />
-            <label for="register-input-lname">Last Name</label>
+            <input type="text" class="form-control" id="register-input-lname" placeholder="last name" />
+            <label for="register-input-lname">Last Name <span class="text-danger">*</span></label>
           </div>
 
           <div class="alert alert-danger d-none col-md-2" role="alert" id="register-alert-lname">
@@ -308,37 +308,37 @@
             <input type="text" class="form-control" id="validationDefault02" required>
           </div> -->
           <h5>address</h5>
-          <div class="col-md-3">
-            <label for="validationDefault03" class="form-label">State</label>
-            <input type="text" class="form-control" id="validationDefault03">
+
+          <div class="form-floating mb-3 col-md-6">
+            <input type="text" class="form-control" id="stateInput" placeholder="name@example.com">
+            <label for="stateInput">State</label>
           </div>
-          <div class="col-md-3">
-            <label for="validationDefault04" class="form-label">Country</label>
-            <input type="text" class="form-control" id="validationDefault04" required>
+          <div class="form-floating mb-3 col-md-6">
+            <input type="text" class="form-control" id="countryInput" placeholder="name@example.com">
+            <label for="countryInput">Country</label>
           </div>
-          <div class="col-md-3">
-            <label for="validationDefault05" class="form-label">City</label>
-            <input type="text" class="form-control" id="validationDefault05" required>
+          <div class="form-floating mb-3 col-md-6">
+            <input type="text" class="form-control" id="cityInput" placeholder="name@example.com">
+            <label for="cityInput">City</label>
           </div>
-          <div class="col-md-3">
-            <label for="validationDefault06" class="form-label">Street</label>
-            <input type="text" class="form-control" id="validationDefault06" required>
+          <div class="form-floating mb-3 col-md-6">
+            <input type="text" class="form-control" id="streetInput" placeholder="name@example.com">
+            <label for="streetInput">street</label>
           </div>
-          <div class="col-md-3">
-            <label for="validationDefault07" class="form-label">House Number</label>
-            <input type="number" class="form-control" id="validationDefault07" required>
+          <div class="form-floating mb-3 col-md-6">
+            <input type="number" class="form-control" id="homeNumberInput" placeholder="name@example.com">
+            <label for="homeNumberInput">house number</label>
+          </div>
+          <div class="form-floating mb-3 col-md-6">
+            <input type="number" class="form-control" id="zipInput" placeholder="name@example.com">
+            <label for="zipInput">ZIP</label>
           </div>
 
-
-          <div class="col-md-3">
-            <label for="validationDefault08" class="form-label">Zip</label>
-            <input type="number" class="form-control" id="validationDefault08" required>
-          </div>
           <div class="col-12">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="check-box-admin" required>
               <label class="form-check-label" for="check-box-admin">
-                Are you a buissenes coustumer?
+                Are you a business coustumer?
               </label>
             </div>
           </div>
@@ -352,7 +352,7 @@
           <h5>Contact</h5>
           <div class="form-floating mb-3 col-md-6">
             <input type="email" class="form-control" id="register-input-email" placeholder="name@example.com" />
-            <label for="register-input-email">Email address</label>
+            <label for="register-input-email">Email address <span class="text-danger">*</span></label>
           </div>
           <div class="alert alert-danger d-none" role="alert" id="register-alert-email">
             Email rules
@@ -362,11 +362,11 @@
             <label for="register-input-phone">Phone Number</label>
           </div>
 
-          <h5>securety</h5>
+          <h5>security</h5>
 
           <div class="form-floating col-md-3">
             <input type="password" class="form-control" id="register-input-password" placeholder="Password" />
-            <label for="register-input-password">Password</label>
+            <label for="register-input-password">Password <span class="text-danger">*</span></label>
           </div>
           <div class="alert alert-danger d-none col-md-3" role="alert" id="register-alert-password">
             password rules
@@ -374,7 +374,7 @@
 
           <div class="form-floating col-md-3">
             <input type="password" class="form-control" id="register-input-confirm-password" placeholder="Password" />
-            <label for="register-input-confirm-password">Confirm Password</label>
+            <label for="register-input-confirm-password">Confirm Password <span class="text-danger">*</span></label>
           </div>
           <div class="alert alert-danger d-none col-md-3 " role="alert" id="register-alert-cpassword">
             password rules
