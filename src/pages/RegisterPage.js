@@ -3,6 +3,8 @@ import { handlePageChange } from "../routes/router.js";
 import validateEmail from "../validation/validateEmail.js";
 import validatePassword from "../validation/validatePassword.js";
 import validateName from "../validation/validateName.js";
+import validateHomeNumber from "../validation/validateHomeNumber.js";
+import validateNumbers from "../validation/validateNumbers.js";
 import User from "../models/User.js";
 import showToast from "../services/Toast.js";
 
@@ -19,6 +21,7 @@ const cityInput = document.getElementById("cityInput");
 const streetInput = document.getElementById("streetInput");
 const homeNumberInput = document.getElementById("homeNumberInput");
 const zipInput = document.getElementById("zipInput");
+const phoneInput = document.getElementById("phoneInput");
 const AdminCheckBox = document.getElementById("check-box-admin");
 const btnRegister = document.querySelector("#register-btn");
 
@@ -28,6 +31,9 @@ let stateOk = { value: true };
 let cityOk = { value: true };
 let countryOk = { value: true };
 let streetOk = { value: true };
+let homeNumberOk = true;
+let zipOk = true;
+let phoneOk = true;
 let emailOk = false;
 let passwordOk = false;
 let confirmPasswordOk = false;
@@ -41,7 +47,7 @@ window.addEventListener("load", () => {
     checkLastNameInput();
   }
   if (stateInput.value !== "") {
-    checkAdressNamesInput(stateInput, "stateInputAlert");
+    checkAdressNamesInput(stateInput, "stateInputAlert", stateOk);
   }
 
   if (inputEmail.value !== "") {
@@ -70,6 +76,22 @@ cityInput.addEventListener("input", function () {
 });
 streetInput.addEventListener("input", function () {
   checkAdressNamesInput(streetInput, "streetInputAlert", streetOk);
+});
+
+homeNumberInput.addEventListener("input", () => {
+  checkHomeNumberInput();
+});
+
+zipInput.addEventListener("input", function () {
+  checkNumberInputs(zipInput, "zipAlert");
+  zipOk = checkNumberInputs(zipInput, "zipAlert");
+  checkIfCanEnableBtn();
+});
+
+phoneInput.addEventListener("input", function () {
+  checkNumberInputs(phoneInput, "phoneAlert");
+  phoneOk = checkNumberInputs(phoneInput, "phoneAlert");
+  checkIfCanEnableBtn();
 });
 
 inputEmail.addEventListener("input", () => {
@@ -130,6 +152,7 @@ const checkLastNameInput = () => {
   }
   checkIfCanEnableBtn();
 };
+
 const checkAdressNamesInput = (inputName, alertDivId, inputOk) => {
   let errorArr = validateName(inputName.value);
   if (errorArr.length === 0 || inputName.value.length < 1) {
@@ -148,6 +171,41 @@ const checkAdressNamesInput = (inputName, alertDivId, inputOk) => {
   }
 
   checkIfCanEnableBtn();
+};
+
+const checkHomeNumberInput = () => {
+  let errorArr = validateHomeNumber(homeNumberInput.value);
+  if (errorArr.length === 0 || homeNumberInput.value.length < 1) {
+    //the text is ok
+    homeNumberInput.classList.remove("is-invalid");
+    document.getElementById("homeNumberAlert").classList.add("d-none");
+    homeNumberOk = true;
+  } else {
+    //the text is not ok
+    homeNumberInput.classList.add("is-invalid");
+    document.getElementById("homeNumberAlert").classList.remove("d-none");
+    document.getElementById("homeNumberAlert").innerHTML =
+      errorArr.join("<br>");
+    homeNumberOk = false;
+  }
+  checkIfCanEnableBtn();
+};
+
+const checkNumberInputs = (numberInput, alertDivId) => {
+  let errorArr = validateNumbers(numberInput.value);
+  if (errorArr.length === 0 || numberInput.value.length < 1) {
+    // the text is ok
+    numberInput.classList.remove("is-invalid");
+    document.getElementById(alertDivId).classList.add("d-none");
+    console.log("true");
+    return true;
+  } else {
+    // the text is not ok
+    numberInput.classList.add("is-invalid");
+    document.getElementById(alertDivId).classList.remove("d-none");
+    document.getElementById(alertDivId).innerHTML = errorArr.join("<br>");
+    return false;
+  }
 };
 
 const checkEmailInput = () => {
@@ -198,7 +256,10 @@ const checkIfCanEnableBtn = () =>
     stateOk.value &&
     cityOk.value &&
     countryOk.value &&
-    streetOk.value
+    streetOk.value &&
+    homeNumberOk &&
+    zipOk &&
+    phoneOk
   ));
 
 // const checkIfCanEnableBtn = () => {
