@@ -24,7 +24,10 @@ const btnRegister = document.querySelector("#register-btn");
 
 let fNameOk = false;
 let lNameOk = false;
-let addresNamesOk = true;
+let stateOk = { value: true };
+let cityOk = { value: true };
+let countryOk = { value: true };
+let streetOk = { value: true };
 let emailOk = false;
 let passwordOk = false;
 let confirmPasswordOk = false;
@@ -40,15 +43,7 @@ window.addEventListener("load", () => {
   if (stateInput.value !== "") {
     checkAdressNamesInput(stateInput, "stateInputAlert");
   }
-  if (countryInput.value !== "") {
-    checkAdressNamesInput();
-  }
-  if (cityInput.value !== "") {
-    checkAdressNamesInput();
-  }
-  if (streetInput.value !== "") {
-    checkAdressNamesInput();
-  }
+
   if (inputEmail.value !== "") {
     checkEmailInput();
   }
@@ -65,7 +60,16 @@ inputLastName.addEventListener("input", () => {
 });
 
 stateInput.addEventListener("input", function () {
-  checkAdressNamesInput(stateInput, "stateInputAlert");
+  checkAdressNamesInput(stateInput, "stateInputAlert", stateOk);
+});
+countryInput.addEventListener("input", function () {
+  checkAdressNamesInput(countryInput, "countryInputAlert", countryOk);
+});
+cityInput.addEventListener("input", function () {
+  checkAdressNamesInput(cityInput, "cityInputAlert", cityOk);
+});
+streetInput.addEventListener("input", function () {
+  checkAdressNamesInput(streetInput, "streetInputAlert", streetOk);
 });
 
 inputEmail.addEventListener("input", () => {
@@ -126,21 +130,21 @@ const checkLastNameInput = () => {
   }
   checkIfCanEnableBtn();
 };
-const checkAdressNamesInput = (inputName, alertDivId) => {
+const checkAdressNamesInput = (inputName, alertDivId, inputOk) => {
   let errorArr = validateName(inputName.value);
   if (errorArr.length === 0 || inputName.value.length < 1) {
     // the text is ok
     inputName.classList.remove("is-invalid");
     document.getElementById(alertDivId).classList.add("d-none");
 
-    addresNamesOk = true;
+    inputOk.value = true;
   } else {
     // the text is not ok
     inputName.classList.add("is-invalid");
     document.getElementById(alertDivId).classList.remove("d-none");
     document.getElementById(alertDivId).innerHTML =
       "Capital first letter. At least two letters";
-    addresNamesOk = false;
+    inputOk.value = false;
   }
 
   checkIfCanEnableBtn();
@@ -191,7 +195,10 @@ const checkIfCanEnableBtn = () =>
     emailOk &&
     passwordOk &&
     confirmPasswordOk &&
-    addresNamesOk
+    stateOk.value &&
+    cityOk.value &&
+    countryOk.value &&
+    streetOk.value
   ));
 
 // const checkIfCanEnableBtn = () => {
