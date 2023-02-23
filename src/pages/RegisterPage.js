@@ -278,13 +278,24 @@ btnRegister.addEventListener("click", () => {
   let users = localStorage.getItem("users");
   let nextUserId = localStorage.getItem("nextUserId");
   nextUserId = +nextUserId;
+  let address = {
+    state: stateInput.value,
+    country: countryInput.value,
+    city: cityInput.value,
+    street: streetInput.value,
+    houseNumber: homeNumberInput.value,
+    zipcode: zipInput.value,
+    phoneNumber: phoneInput.value,
+  };
   let newUser = new User(
     nextUserId++,
     inputFirstName.value,
     inputLastName.value,
     inputEmail.value,
-    inputPassword.value
+    inputPassword.value,
+    address
   );
+
   if (AdminCheckBox.checked) {
     newUser.isAdmin = true;
   }

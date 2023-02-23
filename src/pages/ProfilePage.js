@@ -21,7 +21,7 @@ window.addEventListener("load", () => {
     token = JSON.parse(token);
     let user = users.find((item) => item.id === token.id);
     if (user) {
-      inputName.value = user.name;
+      inputName.value = user.firstname;
       inputEmail.value = user.email;
       inputPassword.value = user.password;
     }
