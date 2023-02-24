@@ -2,11 +2,25 @@ let propertiesArr;
 let carouselDiv;
 let showIdx; //index(array) of the image that we display now
 let animationStarted;
+let timerId; //timer id for setInterval()
+
 //this function will transfer data from homepage to this page
 const initialPropertiesCarousel = (propertiesArrFromHomePage) => {
   carouselDiv = document.getElementById("home-page-properties-carousel");
   initializeBtns();
   updatePropertiesCarousel(propertiesArrFromHomePage);
+  startTimer();
+};
+
+const startTimer = () => {
+  timerId = setInterval(() => {
+    //trigger the next image transition
+    document.getElementById("next-carusel-btn").click();
+  }, 2000); //set the time interval to 5 seconds (5000 milliseconds)
+};
+
+const stopTimer = () => {
+  clearInterval(timerId);
 };
 
 const updatePropertiesCarousel = (propertiesArrFromHomePage) => {
