@@ -36,7 +36,7 @@ window.addEventListener("load", () => {
   originalPropertiesArr = [...propertiesArr];
   isAdmin = checkIfAdmin();
   //passing propertiesArr to PropertiesGallery.js
-  initialPropertiesGallery(propertiesArr);
+  initialPropertiesGallery(propertiesArr, isAdmin, deleteProperty, showPopup);
   initialPropertiesList(propertiesArr, isAdmin, deleteProperty, showPopup);
   initialPropertiesCarousel(propertiesArr);
   initializeElements();
