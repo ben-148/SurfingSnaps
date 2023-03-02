@@ -6,6 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ben's Gallery</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
@@ -15,6 +26,10 @@
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="toast.css" />
   <link rel="icon" type="image/x-icon" href="./assets/imgs/favicon.jpeg">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
 
 </head>
 
@@ -113,6 +128,86 @@
             </div>
           </div>
         </div>
+
+        <div class="modal" id="x-modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <!-- <img src="" class="img-fluid" id="modal-img" alt="Sponsor Image"> -->
+                <!-- <p>looking for some activities for the kids? come!</p> -->
+                <!-- <a href="https://lcm.org/" target="_blank">Visit Sponsor Website</a> -->
+                <div class="card">
+                  <fieldset disabled>
+
+                    <img src="" class="card-img-top" alt="" id="modal-Img-Display" />
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="modalName" placeholder="Name" />
+                          <label for="modalName">Name</label>
+                        </div>
+                      </h5>
+                      <div class="card-text">
+                        <div class="form-floating">
+                          <textarea class="form-control" placeholder="description" id="modalDescription"></textarea>
+                          <label for="modalDescription">Description</label>
+                        </div>
+                      </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="modalPrice" placeholder="Price" />
+                          <label for="modalPrice">Price</label>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="modalId" placeholder="ID" />
+                          <label for="modalId">ID</label>
+                        </div>
+                      </li>
+                      <!--             <li class="list-group-item">
+                                        <div class="form-floating mb-3">
+                                          <input type="text" class="form-control" id="editPropertiesPopupImg" placeholder="Img" />
+                                          <label for="editPropertiesPopupImg">Img</label>
+                                        </div>
+                                      </li> -->
+                    </ul>
+                    <div class="card-body">
+                      <!--             <button type="button" class="btn btn-success" id="editPropertiesPopupSaveBtn">
+                                        <i class="bi bi-check-circle-fill"></i> Save
+                                      </button>
+                                      <button type="button" class="btn btn-danger" id="editPropertiesPopupCancelBtn">
+                                        <i class="bi bi-x-circle-fill" id="editPropertiesPopupCancelBtnIcon"></i>
+                                        Cancel
+                                      </button>
+                           -->
+
+                    </div>
+
+                  </fieldset>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+
         <div class="d-flex justify-content-between mb-2">
           <div>
             <button type="button" class="btn btn-info" id="homeDisplayList">
@@ -272,6 +367,37 @@
       <!-- contact us -->
       <div id="contact-us" class="d-none">
         <h1>Contact us</h1>
+
+        <div class="card" data-toggle="modal" data-target="#sponsor6Modal" style="width: 14rem;">
+          <img src="" class="card-img-top" alt="Sponsor logo">
+          <div class="card-body d-flex justify-content-center">
+            <button type="button" class="btn btn-primary">
+              Louisiana Children's Museum </button>
+          </div>
+        </div>
+        <div class="modal" id="sponsor6Modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Louisiana Children's Museum</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <img src="" class="img-fluid" alt="Sponsor Image">
+                <p>looking for some activities for the kids? come!</p>
+                <a href="https://lcm.org/" target="_blank">Visit Sponsor Website</a>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
       </div>
       <!-- register page -->
       <div id="register-page" class="d-none">
@@ -498,13 +624,6 @@
             Name rules
           </div>
 
-          <!-- <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="PhomeNumberInput" placeholder="House Number">
-            <label for="PhomeNumberInput">House Number</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="PhomeNumberAlert">
-            Number rules
-          </div> -->
 
           <div class="form-floating mb-3 col-md-3">
             <input min="1" type="number" class="form-control" id="PzipInput" placeholder="name@example.com">
@@ -577,6 +696,18 @@
     </footer>
   </div>
   <script src="../src/app.js" type="module"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <!--   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.6/dist/umd/popper.min.js"
+    integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+    crossorigin="anonymous"></script>
+ -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
 </body>
 
 </html>
