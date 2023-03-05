@@ -27,12 +27,6 @@ const updatePropertiesGallery = (propertiesArrFromHomePage) => {
   createGallery();
 };
 
-/* let name;
-let description;
-let price;
-let id;
-let img;
- */
 const createCard = (name, description, price, img, id) => {
   const adminBtns = `
   <button type="button" class="btn btn-warning w-100" id="propertyGalleryEditBtn-${id}">
@@ -44,7 +38,7 @@ const createCard = (name, description, price, img, id) => {
   `;
   let propertieCard = `
   <div class="col">
-    <div class="card" id="card-${id}" >
+    <div class="card" id="${id}" data-id="${id}" >
       <img
         src="${img}"
         class="card-img-top"
@@ -132,29 +126,39 @@ const createGallery = () => {
       const name = card.querySelector(".card-title").textContent;
       const description = card.querySelector(".card-text").textContent;
       const price = card.querySelector(".list-group-item").textContent;
-
+      const id = card.dataset.id;
+      let idfix = id;
       // Populate modal elements with retrieved data
       document.querySelector("#modal-Img-Display").src = img;
-      document.querySelector("#modalName").value = name;
-      document.querySelector("#modalDescription").value = description;
-      document.querySelector("#modalPrice").value = price;
-      modalEl.addEventListener("click", (event) => {
-        event.preventDefault();
+      document.querySelector("#modalName").textContent = name;
+      document.querySelector("#modalDescription").textContent = description;
+      document.querySelector("#modalPrice").textContent = price;
+      document.querySelector("#modalId").textContent = idfix;
 
-        document.querySelector("#modal-Img-Display").src = img;
-        document.querySelector("#modalName").value = name;
-        document.querySelector("#modalDescription").value = description;
-        document.querySelector("#modalPrice").value = price;
-      });
-
-      // if (document.querySelector("#modalName").value) return;
-      /*       //  Open the modal
-      const modal = new bootstrap.Modal(document.querySelector("#x-modal"));
-      modal.show();
- */
+      //  Open the modal
+      // modal.show();
     });
   });
 };
+
+const modal = document.querySelector("#x-modal");
+console.log(
+  "🚀 ~ file: PropertiesGallery.js:144 ~ card.addEventListener ~ modal:",
+  modal
+);
+
+modal.addEventListener("click", (event) => {
+  console.log("hey");
+
+  event.preventDefault();
+});
+
+const triggerElement = modal._relatedTarget;
+triggerElement?.addEventListener("click", (event) => {
+  console.log("hey");
+  event.preventDefault();
+  event.stopPropagation();
+});
 
 //Creates event listener for the delete buttons
 const createBtnEventListener = (idKeyword, handleFunction) => {
