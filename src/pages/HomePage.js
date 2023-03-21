@@ -37,7 +37,13 @@ window.addEventListener("load", () => {
   originalPropertiesArr = [...propertiesArr];
   isAdmin = checkIfAdmin();
   //passing propertiesArr to PropertiesGallery.js
-  initialPropertiesGallery(propertiesArr, isAdmin, deleteProperty, showPopup);
+  initialPropertiesGallery(
+    propertiesArr,
+    isAdmin,
+    deleteProperty,
+    showPopup,
+    showModal
+  );
   initialPropertiesList(
     propertiesArr,
     isAdmin,

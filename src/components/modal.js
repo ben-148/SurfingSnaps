@@ -11,7 +11,7 @@ const initModal = (selectedItemFromHomePage) => {
   modalDspName.textContent = selectedItem.name;
   modalDspDescreption.textContent = selectedItem.description;
   modalDspPrice.textContent = `price: ${selectedItem.price}`;
-  modalDspId.textContent = selectedItem.id;
+  modalDspId.textContent = "id: " + selectedItem.id;
 };
 
 export { initModal };

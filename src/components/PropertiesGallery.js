@@ -3,17 +3,22 @@ let galleryDiv;
 let isAdmin;
 let deleteProperty;
 let showPopup;
+let showModal;
+
 //this function will transfer data from homepage to this page
 const initialPropertiesGallery = (
   propertiesArrFromHomePage,
   isAdminParam,
   deletePropertyFromHomePage,
-  showPopupFromHomePage
+  showPopupFromHomePage,
+  showModalFromHomePage
 ) => {
   galleryDiv = document.getElementById("home-page-properties-gallery");
   isAdmin = isAdminParam;
   deleteProperty = deletePropertyFromHomePage;
   showPopup = showPopupFromHomePage;
+  showModal = showModalFromHomePage;
+
   updatePropertiesGallery(propertiesArrFromHomePage);
 };
 
@@ -37,15 +42,19 @@ const createCard = (name, description, price, img, id) => {
   </button>
   `;
   let propertieCard = `
-  <div class="col">
+  <div class="col" >
     <div class="card" id="${id}" data-id="${id}" >
-      <img
-        src="${img}"
-        class="card-img-top"
-        alt="${name}"
-      />
+
+
+<img
+          src="${img}"
+          class="card-img-top"
+          alt="${name}"  id="propertyGalleryCardImg-${id}"
+        />
+
       <div class="card-body">
-        <h5 class="card-title">${name}</h5>  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#x-modal">Info</button>
+        <h5 class="card-title">${name}</h5>                    <button type="button" class="btn btn-info" id="propertyGalleryModalBtn-${id}">Info</button>
+
 
         <p class="card-text">
           ${description}
@@ -53,7 +62,9 @@ const createCard = (name, description, price, img, id) => {
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">${price}</li>
+
       </ul>
+
       <div class="card-body">
 <button type="button" class="btn btn-success w-100">
           <i class="bi bi-currency-dollar"></i> Buy now
@@ -87,6 +98,14 @@ const handleEditBtnClick = (ev) => {
   showPopup(getIdFromClick(ev));
 };
 
+const handleModalBtnClick = (ev) => {
+  showModal(getIdFromClick(ev));
+  var myModal = document.getElementById("modal2"); // Get the modal element
+  var myModalInstance = new bootstrap.Modal(myModal); // Create a modal instance
+
+  myModalInstance.show(); // Show the modal
+};
+
 const clearEventListeners = (idKeyword, handleFunction) => {
   //get all old btns
   let btnsBefore = document.querySelectorAll(`[id^='${idKeyword}-']`);
@@ -101,6 +120,7 @@ const createGallery = () => {
   clearEventListeners("propertyGalleryDeleteBtn", handleDeleteBtnClick);
   //clear event listeners for edit btns
   clearEventListeners("propertyGalleryEditBtn", handleEditBtnClick);
+  clearEventListeners("propertyGalleryModalBtn", handleModalBtnClick);
   for (let property of propertiesArr) {
     innerStr += createCard(
       property.name,
@@ -115,33 +135,8 @@ const createGallery = () => {
   createBtnEventListener("propertyGalleryDeleteBtn", handleDeleteBtnClick);
   // add event listeners for edit btns
   createBtnEventListener("propertyGalleryEditBtn", handleEditBtnClick);
-
-  const cards = document.querySelectorAll(".card");
-  const modalEl = document.querySelector("#x-modal");
-
-  cards.forEach((card) => {
-    card.addEventListener("click", (ev1) => {
-      console.log(
-        "🚀 ~ file: PropertiesGallery.js:124 ~ card.addEventListener ~ ev1:",
-        ev1
-      );
-      // Retrieve data from card elements
-      const img = card.querySelector(".card-img-top").src;
-      const name = card.querySelector(".card-title").textContent;
-      const description = card.querySelector(".card-text").textContent;
-      const price = card.querySelector(".list-group-item").textContent;
-      const id = card.dataset.id;
-      let idfix = id;
-      // Populate modal elements with retrieved data
-      document.querySelector("#modal-Img-Display").src = img;
-      document.querySelector("#modalName").textContent = name;
-      document.querySelector("#modalDescription").textContent = description;
-      document.querySelector("#modalPrice").textContent = price;
-      document.querySelector("#modalId").textContent = idfix;
-    });
-  });
-
-  const modal = document.querySelector("#x-modal");
+  createBtnEventListener("propertyGalleryModalBtn", handleModalBtnClick);
+  createBtnEventListener("propertyGalleryCardImg", handleModalBtnClick);
 };
 
 //Creates event listener for the delete buttons

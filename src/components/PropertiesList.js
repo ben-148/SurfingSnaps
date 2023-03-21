@@ -42,8 +42,8 @@ const createItem = (name, description, price, img, id) => {
   return `
   <li class="list-group-item">
     <div class="row">
-        <div class="col-md-2" onclick="handleModalBtnClick()">
-        <img src="${img}" class="img-fluid" alt="${name}" />
+        <div class="col-md-2" >
+        <img src="${img}" class="img-fluid" alt="${name}" id="propertyListCardImg-${id}" />
         </div>
         <div class="col-md-8">
         <div class="card-body">
@@ -130,6 +130,7 @@ const createList = () => {
   // add event listeners for edit btns
   createBtnEventListener("propertyListEditBtn", handleEditBtnClick);
   createBtnEventListener("propertyListModalBtn", handleModalBtnClick);
+  createBtnEventListener("propertyListCardImg", handleModalBtnClick);
 };
 
 //Creates event listener for the delete buttons
