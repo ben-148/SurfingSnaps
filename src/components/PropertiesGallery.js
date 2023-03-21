@@ -120,7 +120,11 @@ const createGallery = () => {
   const modalEl = document.querySelector("#x-modal");
 
   cards.forEach((card) => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (ev1) => {
+      console.log(
+        "🚀 ~ file: PropertiesGallery.js:124 ~ card.addEventListener ~ ev1:",
+        ev1
+      );
       // Retrieve data from card elements
       const img = card.querySelector(".card-img-top").src;
       const name = card.querySelector(".card-title").textContent;
@@ -134,31 +138,11 @@ const createGallery = () => {
       document.querySelector("#modalDescription").textContent = description;
       document.querySelector("#modalPrice").textContent = price;
       document.querySelector("#modalId").textContent = idfix;
-
-      //  Open the modal
-      // modal.show();
     });
   });
+
+  const modal = document.querySelector("#x-modal");
 };
-
-const modal = document.querySelector("#x-modal");
-console.log(
-  "🚀 ~ file: PropertiesGallery.js:144 ~ card.addEventListener ~ modal:",
-  modal
-);
-
-modal.addEventListener("click", (event) => {
-  console.log("hey");
-
-  event.preventDefault();
-});
-
-const triggerElement = modal._relatedTarget;
-triggerElement?.addEventListener("click", (event) => {
-  console.log("hey");
-  event.preventDefault();
-  event.stopPropagation();
-});
 
 //Creates event listener for the delete buttons
 const createBtnEventListener = (idKeyword, handleFunction) => {

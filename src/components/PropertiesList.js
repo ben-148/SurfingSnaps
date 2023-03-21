@@ -3,17 +3,20 @@ let listDiv;
 let isAdmin;
 let deleteProperty;
 let showPopup;
+let showModal;
 //this function will transfer data from homepage to this page
 const initialPropertiesList = (
   propertiesArrFromHomePage,
   isAdminParam,
   deletePropertyFromHomePage,
-  showPopupFromHomePage
+  showPopupFromHomePage,
+  showModalFromHomePage
 ) => {
   listDiv = document.getElementById("home-page-properties-list");
   isAdmin = isAdminParam;
   deleteProperty = deletePropertyFromHomePage;
   showPopup = showPopupFromHomePage;
+  showModal = showModalFromHomePage;
   updatePropertiesList(propertiesArrFromHomePage);
 };
 
@@ -39,18 +42,20 @@ const createItem = (name, description, price, img, id) => {
   return `
   <li class="list-group-item">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2" onclick="handleModalBtnClick()">
         <img src="${img}" class="img-fluid" alt="${name}" />
         </div>
         <div class="col-md-8">
         <div class="card-body">
-            <h5 class="card-title">${name}</h5>
+            <h5 class="card-title">${name}</h5> 
             <h6 class="card-subtitle mb-2 text-muted">
             ${price}
             </h6>
             <p class="card-text">
             ${description}
             </p>
+            <button type="button" class="btn btn-info" id="propertyListModalBtn-${id}">Info</button>
+
         </div>
         </div>
         <div class="col-md-2">
@@ -83,6 +88,13 @@ const handleDeleteBtnClick = (ev) => {
 const handleEditBtnClick = (ev) => {
   showPopup(getIdFromClick(ev));
 };
+const handleModalBtnClick = (ev) => {
+  showModal(getIdFromClick(ev));
+  var myModal = document.getElementById("modal2"); // Get the modal element
+  var myModalInstance = new bootstrap.Modal(myModal); // Create a modal instance
+
+  myModalInstance.show(); // Show the modal
+};
 
 const clearEventListeners = (idKeyword, handleFunction) => {
   //get all old btns
@@ -91,6 +103,8 @@ const clearEventListeners = (idKeyword, handleFunction) => {
   for (let btn of btnsBefore) {
     btn.removeEventListener("click", handleFunction);
   }
+
+  // showModal();
 };
 
 const createList = () => {
@@ -115,6 +129,7 @@ const createList = () => {
   createBtnEventListener("propertyListDeleteBtn", handleDeleteBtnClick);
   // add event listeners for edit btns
   createBtnEventListener("propertyListEditBtn", handleEditBtnClick);
+  createBtnEventListener("propertyListModalBtn", handleModalBtnClick);
 };
 
 //Creates event listener for the delete buttons

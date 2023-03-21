@@ -47,11 +47,6 @@ window.addEventListener("load", () => {
     token = JSON.parse(token);
     let user = users.find((item) => item.id === token.id);
     if (user) {
-      console.log(
-        "🚀 ~ file: ProfilePage.js:50 ~ window.addEventListener ~ user",
-        user
-      );
-
       inputFirstName.value = user.firstname;
       inputLastName.value = user.lastname;
       PstateInput.value = user.address.state;

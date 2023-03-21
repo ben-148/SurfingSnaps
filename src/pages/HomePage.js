@@ -12,6 +12,7 @@ import {
 } from "../components/PropertiesCarousel.js";
 import { initPopup } from "../components/Popup.js";
 import checkIfAdmin from "../utils/checkIfAdmin.js";
+import { initModal } from "../components/modal.js";
 
 let propertiesArr, originalPropertiesArr;
 let displayNow; // display that we can see now
@@ -37,7 +38,13 @@ window.addEventListener("load", () => {
   isAdmin = checkIfAdmin();
   //passing propertiesArr to PropertiesGallery.js
   initialPropertiesGallery(propertiesArr, isAdmin, deleteProperty, showPopup);
-  initialPropertiesList(propertiesArr, isAdmin, deleteProperty, showPopup);
+  initialPropertiesList(
+    propertiesArr,
+    isAdmin,
+    deleteProperty,
+    showPopup,
+    showModal
+  );
   initialPropertiesCarousel(propertiesArr);
   initializeElements();
   initializeBtns();
@@ -82,6 +89,10 @@ const initializeBtns = () => {
       let regex = new RegExp("^" + ev.target.value, "i");
       propertiesArr = originalPropertiesArr.filter((item) => {
         let reg = regex.test(item.name);
+        console.log(
+          "🚀 ~ file: HomePage.js:85 ~ propertiesArr=originalPropertiesArr.filter ~ reg:",
+          reg
+        );
         // console.log("item.name", item.name, " reg", reg);
         return reg;
       });
@@ -137,6 +148,13 @@ const showPopup = (id) => {
     return;
   }
   initPopup(selectedProperty, editProperty);
+};
+const showModal = (id) => {
+  let selectedItem = propertiesArr.find((item) => item.id === +id);
+  if (!selectedItem) {
+    return;
+  }
+  initModal(selectedItem);
 };
 
 const showNewPopup = () => {
