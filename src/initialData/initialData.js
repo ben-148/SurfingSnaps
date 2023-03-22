@@ -1,4 +1,5 @@
 import Property from "../models/Property.js";
+// import getDate from "../utils/getDate.js";
 
 let id = 1;
 let nextUserId = 1;
@@ -11,7 +12,8 @@ const createData = () => {
       8.12,
       `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quasi ea culpa magnam enim soluta, totam, illum maiores, incidunt in quo natus eius sint. Alias nihil nobis dolor id cumque!
         Tempore tempora, et delectus dicta mollitia quo natus magnam vero aliquam quisquam! Nam expedita labore reprehenderit omnis eum. Aliquid neque suscipit reiciendis, sequi soluta illum quae at laborum quasi voluptatum.`,
-      "./assets/imgs/a.jpeg"
+      "./assets/imgs/a.jpeg",
+      "shuki nagar"
     ),
     new Property(
       id++,
@@ -19,7 +21,8 @@ const createData = () => {
       20,
       `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quasi ea culpa magnam enim soluta, totam, illum maiores, incidunt in quo natus eius sint. Alias nihil nobis dolor id cumque!
         Tempore tempora, et delectus dicta mollitia quo natus magnam vero aliquam quisquam! Nam expedita labore reprehenderit omnis eum. Aliquid neque suscipit reiciendis, sequi soluta illum quae at laborum quasi voluptatum.`,
-      "./assets/imgs/b.jpeg"
+      "./assets/imgs/b.jpeg",
+      "shuki nagar"
     ),
     new Property(
       id++,
@@ -27,7 +30,8 @@ const createData = () => {
       25,
       `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quasi ea culpa magnam enim soluta, totam, illum maiores, incidunt in quo natus eius sint. Alias nihil nobis dolor id cumque!
         Tempore tempora, et delectus dicta mollitia quo natus magnam vero aliquam quisquam! Nam expedita labore reprehenderit omnis eum. Aliquid neque suscipit reiciendis, sequi soluta illum quae at laborum quasi voluptatum.`,
-      "./assets/imgs/c.jpeg"
+      "./assets/imgs/c.jpeg",
+      "shuki nagar"
     ),
   ];
   return propertiesArr;

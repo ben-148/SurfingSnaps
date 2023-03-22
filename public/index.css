@@ -1,87 +1,83 @@
-         .navbar-brand img {
-           width: 4em;
+ /*         .navbar-brand img {
+           width: 7em;
+           height: 7em;
            margin-left: 0.75em;
          }
+ */
 
-         .navbar-nav,
-         .navbar-brand,
-         .nav-link {
-           font-family: 'Lato', sans-serif;
-         }
+ .carusel {
+   width: 100%;
+   height: 66.6vh;
+ }
 
-         .carusel {
-           width: 100%;
-           height: 66.6vh;
-         }
+ .img-container {
+   position: relative;
+   width: 100%;
+   height: 100%;
+ }
 
-         .img-container {
-           position: relative;
-           width: 100%;
-           height: 100%;
-         }
+ .img-container>img {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+ }
 
-         .img-container>img {
-           position: absolute;
-           width: 100%;
-           height: 100%;
-         }
+ .fade-in {
+   animation: fadein 1s ease forwards;
+ }
 
-         .fade-in {
-           animation: fadein 1s ease forwards;
-         }
+ .fade-out {
+   animation: fadein 1s ease forwards reverse;
+ }
 
-         .fade-out {
-           animation: fadein 1s ease forwards reverse;
-         }
+ /* create animation called fadein */
+ @keyframes fadein {
+   from {
+     opacity: 0;
+   }
 
-         /* create animation called fadein */
-         @keyframes fadein {
-           from {
-             opacity: 0;
-           }
+   to {
+     opacity: 1;
+   }
+ }
 
-           to {
-             opacity: 1;
-           }
-         }
+ .popup-wrapper {
+   position: fixed;
+   width: 100vw;
+   height: 100vh;
+   background-color: #0000008d;
+   top: 0;
+   left: 0;
+   z-index: 999;
+ }
 
-         .popup-wrapper {
-           position: fixed;
-           width: 100vw;
-           height: 100vh;
-           background-color: #0000008d;
-           top: 0;
-           left: 0;
-           z-index: 999;
-         }
+ .popup-wrapper div div {
+   width: 100%;
+ }
 
-         .popup-wrapper div div {
-           width: 100%;
-         }
+ .card-img-top {
+   height: 18.75em;
+ }
 
-         .card-img-top {
-           height: 18.75em;
-         }
-
-         /* .responsive-mt {
+ /* .responsive-mt {
   margin-top: 0.9rem;
 } */
 
-         @media (max-width: 991px) {
-           .responsive-mt {
-             margin-top: 0.9rem;
-           }
+ @media (max-width: 991px) {
+   .responsive-mt {
+     margin-top: 0.9rem;
+   }
 
-           .responsive-nav-flex {
-             flex-direction: column;
-           }
-         }
+   .responsive-nav-flex {
+     flex-direction: column;
+   }
+ }
 
-         .footer {
-           background-color: rgba(0, 0, 0, 0.2);
-           font-family: "pattaya";
-         }
+ .footer {
+   background-color: rgba(0, 0, 0, 0.2);
+   font-family: "Lato";
+ }
 
-         h1 {
-           font-family: "pattaya";
-         }
+ h1 {
+   font-family: "pattaya";
+ }
