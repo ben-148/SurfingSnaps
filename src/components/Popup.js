@@ -14,10 +14,12 @@ const editPropertiesPopupDescription = document.getElementById(
 const editPropertiesPopupPrice = document.getElementById(
   "editPropertiesPopupPrice"
 );
+const editPropertiesPopupCredit = document.getElementById(
+  "editPropertiesPopupCredit"
+);
 const editPropertiesPopupImg = document.getElementById(
   "editPropertiesPopupImg"
 );
-const editPropertiesPopup = document.getElementById("editPropertiesPopup");
 
 const initPopup = (selectedPropertyFromHomePage, editPropertyFromHomePage) => {
   /*
@@ -26,27 +28,31 @@ const initPopup = (selectedPropertyFromHomePage, editPropertyFromHomePage) => {
   if (selectedPropertyFromHomePage) {
     selectedProperty = selectedPropertyFromHomePage;
   } else {
-    selectedProperty = new Property(getNextId(), "", 0, "", "");
+    selectedProperty = new Property(getNextId(), "", 0, "", "", "");
   }
   editProperty = editPropertyFromHomePage;
   editPropertiesPopupImgDisplay.src = selectedProperty.imgUrl;
   editPropertiesPopupName.value = selectedProperty.name;
   editPropertiesPopupDescription.value = selectedProperty.description;
   editPropertiesPopupPrice.value = selectedProperty.price;
+  editPropertiesPopupCredit.value = selectedProperty.credit;
   editPropertiesPopupImg.value = selectedProperty.imgUrl;
   showPopup();
 };
 
+let myModal = document.getElementById("modal1"); // Get the modal element
+let myModalInstance = new bootstrap.Modal(myModal); // Create a modal instance
+
 const showPopup = () => {
-  editPropertiesPopup.classList.remove("d-none");
+  myModalInstance.show();
 };
 
 const hidePopup = () => {
-  editPropertiesPopup.classList.add("d-none");
+  myModalInstance.hide();
 };
 
 window.addEventListener("load", () => {
-  editPropertiesPopup.addEventListener("click", (ev) => {
+  /*   editPropertiesPopup.addEventListener("click", (ev) => {
     if (
       ev.target.id !== "editPropertiesPopup" &&
       ev.target.id !== "editPropertiesPopupCancelBtn" &&
@@ -56,12 +62,14 @@ window.addEventListener("load", () => {
     }
     hidePopup();
   });
+ */
   document
     .getElementById("editPropertiesPopupSaveBtn")
     .addEventListener("click", () => {
       selectedProperty.name = editPropertiesPopupName.value;
       selectedProperty.description = editPropertiesPopupDescription.value;
       selectedProperty.price = editPropertiesPopupPrice.value;
+      selectedProperty.credit = editPropertiesPopupCredit.value;
       selectedProperty.imgUrl = editPropertiesPopupImg.value;
       editProperty(selectedProperty);
       hidePopup();

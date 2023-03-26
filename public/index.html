@@ -76,606 +76,627 @@
     </nav>
     <div id="toast"></div>
     <main>
-      <div class="popup-wrapper d-flex justify-content-center align-items-center d-none" id="editPropertiesPopup">
-        <div class="popup-div" id="editPropertiesPopupChild">
-          <div class="card">
-            <img src="" class="card-img-top" alt="" id="editPropertiesPopupImgDisplay" />
-            <div class="card-body">
-              <h5 class="card-title">
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="editPropertiesPopupName" placeholder="Name" />
-                  <label for="editPropertiesPopupName">Name</label>
-                </div>
-              </h5>
-              <div class="card-text">
-                <div class="form-floating">
-                  <textarea class="form-control" placeholder="description"
-                    id="editPropertiesPopupDescription"></textarea>
-                  <label for="editPropertiesPopupDescription">Description</label>
-                </div>
-              </div>
+      <div class="modal" id="modal1">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- <h5 class="modal-title" id="modalTitle"></h5> -->
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="editPropertiesPopupPrice" placeholder="Price" />
-                  <label for="editPropertiesPopupPrice">Price</label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="editPropertiesPopupImg" placeholder="Img" />
-                  <label for="editPropertiesPopupImg">Img</label>
-                </div>
-              </li>
-            </ul>
-            <div class="card-body">
-              <button type="button" class="btn btn-success" id="editPropertiesPopupSaveBtn">
-                <i class="bi bi-check-circle-fill"></i> Save
-              </button>
-              <button type="button" class="btn btn-danger" id="editPropertiesPopupCancelBtn">
-                <i class="bi bi-x-circle-fill" id="editPropertiesPopupCancelBtnIcon"></i>
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+            <div class="modal-body">
 
-
-
-      <!-- home page -->
-      <div id="home-page" class="d-block">
-        <h1 class="text-center my-2">Ben's Gallery</h1>
-        <h5>Welcome to our photography site, where we showcase the beauty of the world through our lens. We're
-          passionate about
-          capturing life's precious moments and turning them into timeless memories that you can cherish forever.
-          Whether it's
-          breathtaking landscapes, candid portraits, or stunning still lifes, our photographs aim to inspire and
-          captivate. Browse
-          through our collection of high-quality images, and bring home a piece of our art to add to your space. Thank
-          you for
-          visiting, and we hope you enjoy the visual journey as much as we do.</h5>
-
-
-
-        <div class="modal" id="modal2">
-          <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <!-- <h5 class="modal-title" id="modalTitle"></h5> -->
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-
+              <div class="card">
                 <div class="card">
-                  <img src="" class="card-img-top" alt="" id="modalDspImg" />
+                  <img src="" class="card-img-top" alt="" id="editPropertiesPopupImgDisplay" />
                   <div class="card-body">
-                    <h5 id="modalDspName" class="card-title">
-                      <p id="modalName2"></p>
+                    <h5 class="card-title">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="editPropertiesPopupName" placeholder="Name" />
+                        <label for="editPropertiesPopupName">Name</label>
+                      </div>
                     </h5>
                     <div class="card-text">
-                      <p id="modalDspDescreption"></p>
+                      <div class="form-floating">
+                        <textarea class="form-control" placeholder="description"
+                          id="editPropertiesPopupDescription"></textarea>
+                        <label for="editPropertiesPopupDescription">Description</label>
+                      </div>
                     </div>
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                      <p id="modalDspPrice"> price: </p>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="editPropertiesPopupPrice" placeholder="Price" />
+                        <label for="editPropertiesPopupPrice">Price</label>
+                      </div>
                     </li>
                     <li class="list-group-item">
-                      <p id="modalDspId"></p>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="editPropertiesPopupCredit" placeholder="Credit" />
+                        <label for="editPropertiesPopupCredit">Credit</label>
+                      </div>
                     </li>
                     <li class="list-group-item">
-                      <p id="modalCredit"></p>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="editPropertiesPopupImg" placeholder="Img" />
+                        <label for="editPropertiesPopupImg">Img</label>
+                      </div>
                     </li>
-                    <li class="list-group-item">
-                      <p id="modalDateCreate"></p>
-                    </li>
-
                   </ul>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <div class="card-body">
+                    <button type="button" class="btn btn-success" id="editPropertiesPopupSaveBtn">
+                      <i class="bi bi-check-circle-fill"></i> Save
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="editPropertiesPopupCancelBtn">
+                      <i class="bi bi-x-circle-fill" id="editPropertiesPopupCancelBtnIcon"></i>
+                      Cancel
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="modal-footer">
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-        <div class="d-flex justify-content-between mb-2">
-          <div>
-            <button type="button" class="btn btn-info" id="homeDisplayList">
-              <i class="bi bi-card-list"></i>
-            </button>
-            <button type="button" class="btn btn-info" id="homeDisplayGallery">
-              <i class="bi bi-microsoft"></i>
-            </button>
-            <button type="button" class="btn btn-info" id="homeDisplayCousel">
-              <i class="bi bi-file-earmark-slides"></i>
-            </button>
-            <button type="button" class="btn btn-info" id="homeDisplaySortASC">
-              <i class="bi bi-sort-alpha-down"></i>
-            </button>
-            <button type="button" class="btn btn-info" id="homeDisplaySortDESC">
-              <i class="bi bi-sort-alpha-up"></i>
-            </button>
-          </div>
-          <form class="d-flex align-self-end" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-              id="homeDisplaySearch" />
-          </form>
-        </div>
-        <div id="propertiesGallery" class="d-none">
-          <div class="row row-cols-1 row-cols-md-3 g-4" id="home-page-properties-gallery"></div>
-        </div>
-        <div id="propertiesList" class="d-none">
-          <ul class="list-group" id="home-page-properties-list"></ul>
-        </div>
-        <div class="carusel d-none" id="propertiesCarusel">
-          <div class="img-container" id="home-page-properties-carousel"></div>
-          <div class="d-flex justify-content-around">
-            <button type="button" class="btn btn-info my-2" id="back-carusel-btn">
-              <i class="bi bi-caret-left-fill"></i>
-            </button>
-            <button type="button" class="btn btn-info my-2" id="next-carusel-btn">
-              <i class="bi bi-caret-right-fill"></i>
-            </button>
           </div>
         </div>
       </div>
-      <!-- about us -->
-      <div id="about-us" class="d-none">
-        <!-- <h1>About us</h1> -->
+      <div class="modal-footer">
+      </div>
+  </div>
+  </div>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-          integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-        <div class="container">
+
+  <!-- home page -->
+  <div id="home-page" class="d-block">
+    <h1 class="text-center my-2">Ben's Gallery</h1>
+    <h5>Welcome to our photography site, where we showcase the beauty of the world through our lens. We're
+      passionate about
+      capturing life's precious moments and turning them into timeless memories that you can cherish forever.
+      Whether it's
+      breathtaking landscapes, candid portraits, or stunning still lifes, our photographs aim to inspire and
+      captivate. Browse
+      through our collection of high-quality images, and bring home a piece of our art to add to your space. Thank
+      you for
+      visiting, and we hope you enjoy the visual journey as much as we do.</h5>
+
+
+
+    <div class="modal" id="modal2">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <h5 class="modal-title" id="modalTitle"></h5> -->
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+
+            <div class="card">
+              <img src="" class="card-img-top" alt="" id="modalDspImg" />
+              <div class="card-body">
+                <h5 id="modalDspName" class="card-title">
+                  <p id="modalName2"></p>
+                </h5>
+                <div class="card-text">
+                  <p id="modalDspDescreption"></p>
+                </div>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <p id="modalDspPrice"> price: </p>
+                </li>
+                <li class="list-group-item">
+                  <p id="modalDspId"></p>
+                </li>
+                <li class="list-group-item">
+                  <p id="modalCredit"></p>
+                </li>
+                <li class="list-group-item">
+                  <p id="modalDateCreate"></p>
+                </li>
+
+              </ul>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="d-flex justify-content-between mb-2">
+      <div>
+        <button type="button" class="btn btn-info" id="homeDisplayList">
+          <i class="bi bi-card-list"></i>
+        </button>
+        <button type="button" class="btn btn-info" id="homeDisplayGallery">
+          <i class="bi bi-microsoft"></i>
+        </button>
+        <button type="button" class="btn btn-info" id="homeDisplayCousel">
+          <i class="bi bi-file-earmark-slides"></i>
+        </button>
+        <button type="button" class="btn btn-info" id="homeDisplaySortASC">
+          <i class="bi bi-sort-alpha-down"></i>
+        </button>
+        <button type="button" class="btn btn-info" id="homeDisplaySortDESC">
+          <i class="bi bi-sort-alpha-up"></i>
+        </button>
+      </div>
+      <form class="d-flex align-self-end" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+          id="homeDisplaySearch" />
+      </form>
+    </div>
+    <div id="propertiesGallery" class="d-none">
+      <div class="row row-cols-1 row-cols-md-3 g-4" id="home-page-properties-gallery"></div>
+    </div>
+    <div id="propertiesList" class="d-none">
+      <ul class="list-group" id="home-page-properties-list"></ul>
+    </div>
+    <div class="carusel d-none" id="propertiesCarusel">
+      <div class="img-container" id="home-page-properties-carousel"></div>
+      <div class="d-flex justify-content-around">
+        <button type="button" class="btn btn-info my-2" id="back-carusel-btn">
+          <i class="bi bi-caret-left-fill"></i>
+        </button>
+        <button type="button" class="btn btn-info my-2" id="next-carusel-btn">
+          <i class="bi bi-caret-right-fill"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- about us -->
+  <div id="about-us" class="d-none">
+    <!-- <h1>About us</h1> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+      integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-6 order-2 order-md-1 mt-4 pt-2 mt-sm-0 opt-sm-0">
           <div class="row align-items-center">
-            <div class="col-lg-6 col-md-6 order-2 order-md-1 mt-4 pt-2 mt-sm-0 opt-sm-0">
-              <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 col-6">
-                  <div class="row">
-                    <div class="col-lg-12 col-md-12 mt-4 pt-2">
-                      <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
-                        <img src="./assets/imgs/aboutusimg.jpeg" class="img-fluid" alt="Image" />
-                        <div class="img-overlay bg-dark"></div>
-                      </div>
-                    </div>
-                    <!--end col-->
-
-                    <div class="col-12">
-                      <div class="mt-4 pt-2 text-right">
-                      </div>
-                    </div>
+            <div class="col-lg-6 col-md-6 col-6">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 mt-4 pt-2">
+                  <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
+                    <img src="./assets/imgs/aboutusimg.jpeg" class="img-fluid" alt="Image" />
+                    <div class="img-overlay bg-dark"></div>
                   </div>
-                  <!--end row-->
                 </div>
                 <!--end col-->
 
-                <div class="col-lg-6 col-md-6 col-6">
-                  <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                      <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
-                        <img src="./assets/imgs/a.jpeg" class="img-fluid" alt="Image" />
-                        <div class="img-overlay bg-dark"></div>
-                      </div>
-                    </div>
-                    <!--end col-->
-
-                    <div class="col-lg-12 col-md-12 mt-4 pt-2">
-                      <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
-                        <img src="./assets/imgs/b.jpeg" class="img-fluid" alt="Image" />
-                        <div class="img-overlay bg-dark"></div>
-                      </div>
-                    </div>
-                    <!--end col-->
+                <div class="col-12">
+                  <div class="mt-4 pt-2 text-right">
                   </div>
-                  <!--end row-->
+                </div>
+              </div>
+              <!--end row-->
+            </div>
+            <!--end col-->
+
+            <div class="col-lg-6 col-md-6 col-6">
+              <div class="row">
+                <div class="col-lg-12 col-md-12">
+                  <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
+                    <img src="./assets/imgs/a.jpeg" class="img-fluid" alt="Image" />
+                    <div class="img-overlay bg-dark"></div>
+                  </div>
+                </div>
+                <!--end col-->
+
+                <div class="col-lg-12 col-md-12 mt-4 pt-2">
+                  <div class="card work-desk rounded border-0 shadow-lg overflow-hidden">
+                    <img src="./assets/imgs/b.jpeg" class="img-fluid" alt="Image" />
+                    <div class="img-overlay bg-dark"></div>
+                  </div>
                 </div>
                 <!--end col-->
               </div>
               <!--end row-->
             </div>
             <!--end col-->
-
-            <div class="col-lg-6 col-md-6 col-12 order-1 order-md-2">
-              <div class="section-title ml-lg-5">
-                <h1 class="text-custom font-weight-normal mb-3">About Us</h1>
-                <h4 class="title mb-4">
-                  Our mission is to <br />
-                  add some picture to your life. and to give you the oppertunity to add some pictures to others lifes.
-                </h4>
-                <p class="text-muted mb-0">Welcome to Ben's Gallery, a platform where photography enthusiasts can
-                  showcase their talent and
-                  passion. Our
-                  mission is to bring together a community of photographers and art lovers who share a common love for
-                  capturing
-                  moments
-                  and creating art through photography.
-
-
-                  Our gallery features a diverse collection of high-quality photographs that celebrate the beauty of the
-                  world.
-                  From
-                  stunning landscapes to captivating portraits, our photographs showcase the incredible diversity of our
-                  planet
-                  and the
-                  amazing people who inhabit it.
-
-
-
-                  In addition to browsing and purchasing photographs from our collection, we also provide a unique
-                  opportunity
-                  for
-                  photographers to add their own images to our gallery and earn a profit. By submitting your work to our
-                  gallery, you can
-                  reach a wider audience and monetize your art.
-
-                  We believe that everyone deserves a chance to share their art with the world, which is why we've made
-                  it
-                  easy
-                  to upload
-                  your own photographs to our platform. Once approved, your photographs will be available for purchase
-                  on our
-                  website, and
-                  you'll earn a commission for each sale.
-
-                  At Ben's Gallery, we're passionate about creating a community where photography lovers can come
-                  together
-                  and share their love for this incredible art form. We invite you to explore our gallery, shop for your
-                  favorite photographs, and even contribute your own work to our platform. Thank you for being a part of
-                  our
-                  journey!
-                </p>
-
-
-              </div>
-            </div>
-            <!--end col-->
           </div>
-          <!--enr row-->
+          <!--end row-->
         </div>
+        <!--end col-->
 
-        <!-- <img src="./assets/imgs/aboutusimg.jpeg" height="300px" alt=""> -->
-      </div>
-      <!-- contact us -->
-      <div id="contact-us" class="d-none">
-        <h1>Contact us</h1>
+        <div class="col-lg-6 col-md-6 col-12 order-1 order-md-2">
+          <div class="section-title ml-lg-5">
+            <h1 class="text-custom font-weight-normal mb-3">About Us</h1>
+            <h4 class="title mb-4">
+              Our mission is to <br />
+              add some picture to your life. and to give you the oppertunity to add some pictures to others lifes.
+            </h4>
+            <p class="text-muted mb-0">Welcome to Ben's Gallery, a platform where photography enthusiasts can
+              showcase their talent and
+              passion. Our
+              mission is to bring together a community of photographers and art lovers who share a common love for
+              capturing
+              moments
+              and creating art through photography.
 
-        <div class="card" data-toggle="modal" data-target="#sponsor6Modal" style="width: 14rem;">
-          <img src="" class="card-img-top" alt="Sponsor logo">
-          <div class="card-body d-flex justify-content-center">
-            <button type="button" class="btn btn-primary">
-              Louisiana Children's Museum </button>
+
+              Our gallery features a diverse collection of high-quality photographs that celebrate the beauty of the
+              world.
+              From
+              stunning landscapes to captivating portraits, our photographs showcase the incredible diversity of our
+              planet
+              and the
+              amazing people who inhabit it.
+
+
+
+              In addition to browsing and purchasing photographs from our collection, we also provide a unique
+              opportunity
+              for
+              photographers to add their own images to our gallery and earn a profit. By submitting your work to our
+              gallery, you can
+              reach a wider audience and monetize your art.
+
+              We believe that everyone deserves a chance to share their art with the world, which is why we've made
+              it
+              easy
+              to upload
+              your own photographs to our platform. Once approved, your photographs will be available for purchase
+              on our
+              website, and
+              you'll earn a commission for each sale.
+
+              At Ben's Gallery, we're passionate about creating a community where photography lovers can come
+              together
+              and share their love for this incredible art form. We invite you to explore our gallery, shop for your
+              favorite photographs, and even contribute your own work to our platform. Thank you for being a part of
+              our
+              journey!
+            </p>
+
+
           </div>
         </div>
-        <div class="modal" id="sponsor6Modal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Louisiana Children's Museum</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <img src="" class="img-fluid" alt="Sponsor Image">
-                <p>looking for some activities for the kids? come!</p>
-                <a href="https://lcm.org/" target="_blank">Visit Sponsor Website</a>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
+        <!--end col-->
+      </div>
+      <!--enr row-->
+    </div>
+
+    <!-- <img src="./assets/imgs/aboutusimg.jpeg" height="300px" alt=""> -->
+  </div>
+  <!-- contact us -->
+  <div id="contact-us" class="d-none">
+    <h1>Contact us</h1>
+
+    <div class="card" data-toggle="modal" data-target="#sponsor6Modal" style="width: 14rem;">
+      <img src="" class="card-img-top" alt="Sponsor logo">
+      <div class="card-body d-flex justify-content-center">
+        <button type="button" class="btn btn-primary">
+          Louisiana Children's Museum </button>
+      </div>
+    </div>
+    <div class="modal" id="sponsor6Modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Louisiana Children's Museum</h5>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <img src="" class="img-fluid" alt="Sponsor Image">
+            <p>looking for some activities for the kids? come!</p>
+            <a href="https://lcm.org/" target="_blank">Visit Sponsor Website</a>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-
-
-
-
-
       </div>
-      <!-- register page -->
-      <div id="register-page" class="d-none">
-        <h1>Register page</h1>
-
-        <form class="row g-3" onsubmit="event.preventDefault()">
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="register-input-fname" placeholder="Your name" />
-            <label for="register-input-fname">First Name <span class="text-danger">*</span></label>
-          </div>
-
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="register-alert-name">
-            Name rules
-          </div>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="register-input-lname" placeholder="last name" />
-            <label for="register-input-lname">Last Name <span class="text-danger">*</span></label>
-          </div>
-
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="register-alert-lname">
-            Name rules
-          </div>
+    </div>
 
 
-          <h5>address</h5>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="stateInput" placeholder="name@example.com">
-            <label for="stateInput">State</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="stateInputAlert">
-            Name rules
-          </div>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="countryInput" placeholder="name@example.com">
-            <label for="countryInput">Country</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="countryInputAlert">
-            Name rules
-          </div>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="cityInput" placeholder="name@example.com">
-            <label for="cityInput">City</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="cityInputAlert">
-            Name rules
-          </div>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="streetInput" placeholder="name@example.com">
-            <label for="streetInput">street</label>
-          </div>
-
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="streetInputAlert">
-            Name rules
-          </div>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="homeNumberInput" placeholder="House Number">
-            <label for="homeNumberInput">House Number</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="homeNumberAlert">
-            Number rules
-          </div>
 
 
-          <div class="form-floating mb-3 col-md-3">
-            <input min="1" type="number" class="form-control" id="zipInput" placeholder="name@example.com">
-            <label for="zipInput">ZIP</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="zipAlert">
-            Number rules
-          </div>
 
+  </div>
+  <!-- register page -->
+  <div id="register-page" class="d-none">
+    <h1>Register page</h1>
 
-          <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="check-box-admin">
-              <label class="form-check-label" for="check-box-admin">
-                Are you a business coustumer?
-              </label>
-            </div>
-          </div>
+    <form class="row g-3" onsubmit="event.preventDefault()">
 
-          <h5>Contact</h5>
-          <div class="form-floating mb-3 col-md-6">
-            <input type="email" class="form-control" id="register-input-email" placeholder="name@example.com" />
-            <label for="register-input-email">Email address <span class="text-danger">*</span></label>
-          </div>
-          <div class="alert alert-danger d-none" role="alert" id="register-alert-email">
-            Email rules
-          </div>
-
-
-          <div class="form-floating mb-3 col-md-6">
-            <input min="1" type="number" class="form-control" id="phoneInput" placeholder="name@example.com" />
-            <label for="phoneInput">Phone Number</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="phoneAlert">
-            Number rules
-          </div>
-
-
-          <h5>security</h5>
-
-          <div class="form-floating col-md-3">
-            <input type="password" class="form-control" id="register-input-password" placeholder="Password" />
-            <label for="register-input-password">Password <span class="text-danger">*</span></label>
-          </div>
-          <div class="alert alert-danger d-none col-md-3" role="alert" id="register-alert-password">
-            password rules
-          </div>
-
-          <div class="form-floating col-md-3">
-            <input type="password" class="form-control" id="register-input-confirm-password" placeholder="Password" />
-            <label for="register-input-confirm-password">Confirm Password <span class="text-danger">*</span></label>
-          </div>
-          <div class="alert alert-danger d-none col-md-3 " role="alert" id="register-alert-cpassword">
-            password rules
-          </div>
-
-
-          <div class="col-12">
-            <button class="btn btn-danger" disabled="true" id="register-btn">
-              Register
-            </button>
-          </div>
-        </form>
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="register-input-fname" placeholder="Your name" />
+        <label for="register-input-fname">First Name <span class="text-danger">*</span></label>
       </div>
-      <!-- login page -->
-      <div id="login-page" class="d-none">
-        <h1>Login page</h1>
-        <form onsubmit="event.preventDefault()">
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="login-input-email" placeholder="name@example.com" />
-            <label for="login-input-email">Email address</label>
-          </div>
-          <div class="alert alert-danger d-none" role="alert" id="login-alert-email">
-            Email rules
-          </div>
-          <div class="form-floating">
-            <input type="password" class="form-control" id="login-input-password" placeholder="Password" />
-            <label for="login-input-password">Password</label>
-          </div>
-          <div class="alert alert-danger d-none" role="alert" id="login-alert-password">
-            Password rules
-          </div>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-          <button class="btn btn-primary" id="login-btn">Submit</button>
-        </form>
+
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="register-alert-name">
+        Name rules
       </div>
-      <!-- Profile Page -->
-      <div id="profile-page" class="d-none">
-        <h1>Profile page</h1>
-        <form class="row g-3" onsubmit="event.preventDefault()">
 
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="profile-input-fname" placeholder="Your name" />
-            <label for="profile-input-fname">First Name <span class="text-danger">*</span></label>
-          </div>
-
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="profile-alert-name">
-            Name rules
-          </div>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="profile-input-lname" placeholder="last name" />
-            <label for="profile-input-lname">Last Name <span class="text-danger">*</span></label>
-          </div>
-
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="profile-alert-lname">
-            Name rules
-          </div>
-
-
-          <h5>address</h5>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="PstateInput" placeholder="name@example.com">
-            <label for="PstateInput">State</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="PstateInputAlert">
-            Name rules
-          </div>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="PcountryInput" placeholder="name@example.com">
-            <label for="PcountryInput">Country</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="PcountryInputAlert">
-            Name rules
-          </div>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="PcityInput" placeholder="name@example.com">
-            <label for="PcityInput">City</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="PcityInputAlert">
-            Name rules
-          </div>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="PstreetInput" placeholder="name@example.com">
-            <label for="PstreetInput">street</label>
-          </div>
-
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="PstreetInputAlert">
-            Name rules
-          </div>
-
-          <div class="form-floating mb-3 col-md-3">
-            <input type="text" class="form-control" id="profileHouseNumber" placeholder="name@example.com">
-            <label for="profileHouseNumber">House Number</label>
-          </div>
-
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="profileHouseNumberAlert">
-            Name rules
-          </div>
-
-
-          <div class="form-floating mb-3 col-md-3">
-            <input min="1" type="number" class="form-control" id="PzipInput" placeholder="name@example.com">
-            <label for="PzipInput">ZIP</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="PzipAlert">
-            Number rules
-          </div>
-
-
-          <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="Pcheck-box-admin">
-              <label class="form-check-label" for="Pcheck-box-admin">
-                Are you a business coustumer?
-              </label>
-            </div>
-          </div>
-
-          <h5>Contact</h5>
-          <div class="form-floating mb-3 col-md-6">
-            <input type="email" class="form-control" id="profile-input-email" placeholder="name@example.com" />
-            <label for="profile-input-email">Email address <span class="text-danger">*</span></label>
-          </div>
-          <div class="alert alert-danger d-none" role="alert" id="profile-alert-email">
-            Email rules
-          </div>
-
-
-          <div class="form-floating mb-3 col-md-6">
-            <input min="1" type="number" class="form-control" id="PphoneInput" placeholder="name@example.com" />
-            <label for="PphoneInput">Phone Number</label>
-          </div>
-          <div class="alert alert-danger d-none col-md-2" role="alert" id="PphoneAlert">
-            Number rules
-          </div>
-
-
-          <h5>security</h5>
-
-          <div class="form-floating col-md-3">
-            <input type="password" class="form-control" id="profile-input-password" placeholder="Password" />
-            <label for="profile-input-password">Password <span class="text-danger">*</span></label>
-          </div>
-          <div class="alert alert-danger d-none col-md-3" role="alert" id="profile-alert-password">
-            password rules
-          </div>
-
-          <div class="form-floating col-md-3">
-            <input type="password" class="form-control" id="profile-input-confirm-password" placeholder="Password" />
-            <label for="profile-input-confirm-password">Confirm Password <span class="text-danger">*</span></label>
-          </div>
-          <div class="alert alert-danger d-none col-md-3 " role="alert" id="profile-alert-cpassword">
-            password rules
-          </div>
-
-
-          <div class="col-12">
-            <button class="btn btn-danger mb-3 " disabled="true" id="profile-btn">
-              Update
-            </button>
-          </div>
-        </form>
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="register-input-lname" placeholder="last name" />
+        <label for="register-input-lname">Last Name <span class="text-danger">*</span></label>
       </div>
-      <!-- 404 Page not found Page -->
-      <div id="page-not-found-page" class="d-none"></div>
-    </main>
-    <footer class="bg-light text-center text-lg-start">
-      <!-- Copyright -->
-      <div class="text-center p-3 footer">
-        © 2023 Copyright: BEN OVED
+
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="register-alert-lname">
+        Name rules
       </div>
-    </footer>
+
+
+      <h5>address</h5>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="stateInput" placeholder="name@example.com">
+        <label for="stateInput">State</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="stateInputAlert">
+        Name rules
+      </div>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="countryInput" placeholder="name@example.com">
+        <label for="countryInput">Country</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="countryInputAlert">
+        Name rules
+      </div>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="cityInput" placeholder="name@example.com">
+        <label for="cityInput">City</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="cityInputAlert">
+        Name rules
+      </div>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="streetInput" placeholder="name@example.com">
+        <label for="streetInput">street</label>
+      </div>
+
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="streetInputAlert">
+        Name rules
+      </div>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="homeNumberInput" placeholder="House Number">
+        <label for="homeNumberInput">House Number</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="homeNumberAlert">
+        Number rules
+      </div>
+
+
+      <div class="form-floating mb-3 col-md-3">
+        <input min="1" type="number" class="form-control" id="zipInput" placeholder="name@example.com">
+        <label for="zipInput">ZIP</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="zipAlert">
+        Number rules
+      </div>
+
+
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="check-box-admin">
+          <label class="form-check-label" for="check-box-admin">
+            Are you a business coustumer?
+          </label>
+        </div>
+      </div>
+
+      <h5>Contact</h5>
+      <div class="form-floating mb-3 col-md-6">
+        <input type="email" class="form-control" id="register-input-email" placeholder="name@example.com" />
+        <label for="register-input-email">Email address <span class="text-danger">*</span></label>
+      </div>
+      <div class="alert alert-danger d-none" role="alert" id="register-alert-email">
+        Email rules
+      </div>
+
+
+      <div class="form-floating mb-3 col-md-6">
+        <input min="1" type="number" class="form-control" id="phoneInput" placeholder="name@example.com" />
+        <label for="phoneInput">Phone Number</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="phoneAlert">
+        Number rules
+      </div>
+
+
+      <h5>security</h5>
+
+      <div class="form-floating col-md-3">
+        <input type="password" class="form-control" id="register-input-password" placeholder="Password" />
+        <label for="register-input-password">Password <span class="text-danger">*</span></label>
+      </div>
+      <div class="alert alert-danger d-none col-md-3" role="alert" id="register-alert-password">
+        password rules
+      </div>
+
+      <div class="form-floating col-md-3">
+        <input type="password" class="form-control" id="register-input-confirm-password" placeholder="Password" />
+        <label for="register-input-confirm-password">Confirm Password <span class="text-danger">*</span></label>
+      </div>
+      <div class="alert alert-danger d-none col-md-3 " role="alert" id="register-alert-cpassword">
+        password rules
+      </div>
+
+
+      <div class="col-12">
+        <button class="btn btn-danger" disabled="true" id="register-btn">
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- login page -->
+  <div id="login-page" class="d-none">
+    <h1>Login page</h1>
+    <form onsubmit="event.preventDefault()">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="login-input-email" placeholder="name@example.com" />
+        <label for="login-input-email">Email address</label>
+      </div>
+      <div class="alert alert-danger d-none" role="alert" id="login-alert-email">
+        Email rules
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="login-input-password" placeholder="Password" />
+        <label for="login-input-password">Password</label>
+      </div>
+      <div class="alert alert-danger d-none" role="alert" id="login-alert-password">
+        Password rules
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button class="btn btn-primary" id="login-btn">Submit</button>
+    </form>
+  </div>
+  <!-- Profile Page -->
+  <div id="profile-page" class="d-none">
+    <h1>Profile page</h1>
+    <form class="row g-3" onsubmit="event.preventDefault()">
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="profile-input-fname" placeholder="Your name" />
+        <label for="profile-input-fname">First Name <span class="text-danger">*</span></label>
+      </div>
+
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="profile-alert-name">
+        Name rules
+      </div>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="profile-input-lname" placeholder="last name" />
+        <label for="profile-input-lname">Last Name <span class="text-danger">*</span></label>
+      </div>
+
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="profile-alert-lname">
+        Name rules
+      </div>
+
+
+      <h5>address</h5>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="PstateInput" placeholder="name@example.com">
+        <label for="PstateInput">State</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="PstateInputAlert">
+        Name rules
+      </div>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="PcountryInput" placeholder="name@example.com">
+        <label for="PcountryInput">Country</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="PcountryInputAlert">
+        Name rules
+      </div>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="PcityInput" placeholder="name@example.com">
+        <label for="PcityInput">City</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="PcityInputAlert">
+        Name rules
+      </div>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="PstreetInput" placeholder="name@example.com">
+        <label for="PstreetInput">street</label>
+      </div>
+
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="PstreetInputAlert">
+        Name rules
+      </div>
+
+      <div class="form-floating mb-3 col-md-3">
+        <input type="text" class="form-control" id="profileHouseNumber" placeholder="name@example.com">
+        <label for="profileHouseNumber">House Number</label>
+      </div>
+
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="profileHouseNumberAlert">
+        Name rules
+      </div>
+
+
+      <div class="form-floating mb-3 col-md-3">
+        <input min="1" type="number" class="form-control" id="PzipInput" placeholder="name@example.com">
+        <label for="PzipInput">ZIP</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="PzipAlert">
+        Number rules
+      </div>
+
+
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="Pcheck-box-admin">
+          <label class="form-check-label" for="Pcheck-box-admin">
+            Are you a business coustumer?
+          </label>
+        </div>
+      </div>
+
+      <h5>Contact</h5>
+      <div class="form-floating mb-3 col-md-6">
+        <input type="email" class="form-control" id="profile-input-email" placeholder="name@example.com" />
+        <label for="profile-input-email">Email address <span class="text-danger">*</span></label>
+      </div>
+      <div class="alert alert-danger d-none" role="alert" id="profile-alert-email">
+        Email rules
+      </div>
+
+
+      <div class="form-floating mb-3 col-md-6">
+        <input min="1" type="number" class="form-control" id="PphoneInput" placeholder="name@example.com" />
+        <label for="PphoneInput">Phone Number</label>
+      </div>
+      <div class="alert alert-danger d-none col-md-2" role="alert" id="PphoneAlert">
+        Number rules
+      </div>
+
+
+      <h5>security</h5>
+
+      <div class="form-floating col-md-3">
+        <input type="password" class="form-control" id="profile-input-password" placeholder="Password" />
+        <label for="profile-input-password">Password <span class="text-danger">*</span></label>
+      </div>
+      <div class="alert alert-danger d-none col-md-3" role="alert" id="profile-alert-password">
+        password rules
+      </div>
+
+      <div class="form-floating col-md-3">
+        <input type="password" class="form-control" id="profile-input-confirm-password" placeholder="Password" />
+        <label for="profile-input-confirm-password">Confirm Password <span class="text-danger">*</span></label>
+      </div>
+      <div class="alert alert-danger d-none col-md-3 " role="alert" id="profile-alert-cpassword">
+        password rules
+      </div>
+
+
+      <div class="col-12">
+        <button class="btn btn-danger mb-3 " disabled="true" id="profile-btn">
+          Update
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- 404 Page not found Page -->
+  <div id="page-not-found-page" class="d-none"></div>
+  </main>
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3 footer">
+      © 2023 Copyright: BEN OVED
+    </div>
+  </footer>
   </div>
   <script src="../src/app.js" type="module"></script>
 
