@@ -9,6 +9,9 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -81,11 +84,12 @@
           <div class="modal-content">
             <div class="modal-header">
               <!-- <h5 class="modal-title" id="modalTitle"></h5> -->
+              <h3>to sell your picture, insert some info</h3>
+
               <button type="button" class="close" data-dismiss="modal">&times;</button>
 
             </div>
             <div class="modal-body">
-
               <div class="card">
                 <div class="card">
                   <img src="" class="card-img-top" alt="" id="editPropertiesPopupImgDisplay" />
@@ -95,6 +99,11 @@
                         <input type="text" class="form-control" id="editPropertiesPopupName" placeholder="Name" />
                         <label for="editPropertiesPopupName">Name</label>
                       </div>
+                      <div class="alert alert-danger d-none col-md-6" role="alert" id="popup-alert-name">
+                        Name rules
+                      </div>
+
+
                     </h5>
                     <div class="card-text">
                       <div class="form-floating">
@@ -102,6 +111,12 @@
                           id="editPropertiesPopupDescription"></textarea>
                         <label for="editPropertiesPopupDescription">Description</label>
                       </div>
+                      <div class="alert alert-danger d-none col-md-6" role="alert" id="popup-alert-description">
+                        Name rules
+                      </div>
+
+
+
                     </div>
                   </div>
                   <ul class="list-group list-group-flush">
@@ -110,22 +125,29 @@
                         <input type="text" class="form-control" id="editPropertiesPopupPrice" placeholder="Price" />
                         <label for="editPropertiesPopupPrice">Price</label>
                       </div>
+                      <div class="alert alert-danger d-none col-md-6" role="alert" id="popup-alert-price">
+
+
                     </li>
                     <li class="list-group-item">
                       <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="editPropertiesPopupCredit" placeholder="Credit" />
                         <label for="editPropertiesPopupCredit">Credit</label>
                       </div>
+                      <div class="alert alert-danger d-none col-md-6" role="alert" id="popup-alert-credit">
+
                     </li>
                     <li class="list-group-item">
                       <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="editPropertiesPopupImg" placeholder="Img" />
                         <label for="editPropertiesPopupImg">Img</label>
                       </div>
+                      <div class="alert alert-danger d-none col-md-6" role="alert" id="popup-alert-img">
+
                     </li>
                   </ul>
                   <div class="card-body">
-                    <button type="button" class="btn btn-success" id="editPropertiesPopupSaveBtn">
+                    <button type="button" disabled="true" class="btn btn-success" id="editPropertiesPopupSaveBtn">
                       <i class="bi bi-check-circle-fill"></i> Save
                     </button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="editPropertiesPopupCancelBtn">
@@ -253,8 +275,6 @@
   <div id="about-us" class="d-none">
     <!-- <h1>About us</h1> -->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-      integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-6 order-2 order-md-1 mt-4 pt-2 mt-sm-0 opt-sm-0">

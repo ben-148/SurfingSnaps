@@ -352,3 +352,5 @@ btnProfile.addEventListener("click", () => {
     location.reload();
   }, 3000);
 });
+
+export { checkNumberInputs };
