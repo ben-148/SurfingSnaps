@@ -4,6 +4,8 @@ import validateName from "../validation/validateName.js";
 import { checkNumberInputs } from "../pages/ProfilePage.js";
 import validatePrice from "../validation/validatePrice.js";
 import validateUrl from "../validation/validateUrl.js";
+import validateImageName from "../validation/validateImageName.js";
+import validateImageDescription from "../validation/validateImageDescription.js";
 
 let selectedProperty, editProperty;
 const editPropertiesPopupImgDisplay = document.getElementById(
@@ -38,7 +40,7 @@ const initPopup = (selectedPropertyFromHomePage, editPropertyFromHomePage) => {
   if (selectedPropertyFromHomePage) {
     selectedProperty = selectedPropertyFromHomePage;
   } else {
-    selectedProperty = new Property(getNextId(), "", 0, "", "", "");
+    selectedProperty = new Property(getNextId(), "", "", "", "", "");
   }
   editProperty = editPropertyFromHomePage;
   editPropertiesPopupImgDisplay.src = selectedProperty.imgUrl;
@@ -55,6 +57,29 @@ let myModalInstance = new bootstrap.Modal(myModal); // Create a modal instance
 
 const showPopup = () => {
   myModalInstance.show();
+  if (editPropertiesPopupName.value !== "") {
+    checksStringInput(editPropertiesPopupName, "popup-alert-name", titleOk);
+  }
+  if (editPropertiesPopupDescription.value !== "") {
+    checksDescriptionInput(
+      editPropertiesPopupDescription,
+      "popup-alert-description",
+      descriptionOk
+    );
+  }
+  if (editPropertiesPopupCredit.value !== "") {
+    checksStringInput(
+      editPropertiesPopupCredit,
+      "popup-alert-credit",
+      creditOk
+    );
+  }
+  if (editPropertiesPopupImg.value !== "") {
+    checkUrlInput(editPropertiesPopupImg, "popup-alert-img", imgOk);
+  }
+  if (editPropertiesPopupPrice.value !== "") {
+    checkPriceInput(editPropertiesPopupPrice, "popup-alert-price", priceOk);
+  }
 };
 
 const hidePopup = () => {
@@ -73,20 +98,17 @@ window.addEventListener("load", () => {
       editProperty(selectedProperty);
       hidePopup();
     });
+
   editPropertiesPopupImg.addEventListener("input", () => {
     editPropertiesPopupImgDisplay.src = editPropertiesPopupImg.value;
   });
-
-  if (editPropertiesPopupName.value !== "") {
-    checksStringInput(editPropertiesPopupName, "popup-alert-name", titleOk);
-  }
 });
 
 editPropertiesPopupName.addEventListener("input", function () {
   checksStringInput(editPropertiesPopupName, "popup-alert-name", titleOk);
 });
 editPropertiesPopupDescription.addEventListener("input", function () {
-  checksStringInput(
+  checksDescriptionInput(
     editPropertiesPopupDescription,
     "popup-alert-description",
     descriptionOk
@@ -94,13 +116,6 @@ editPropertiesPopupDescription.addEventListener("input", function () {
 });
 editPropertiesPopupCredit.addEventListener("input", function () {
   checksStringInput(editPropertiesPopupCredit, "popup-alert-credit", creditOk);
-});
-editPropertiesPopupDescription.addEventListener("input", function () {
-  checksStringInput(
-    editPropertiesPopupDescription,
-    "popup-alert-description",
-    descriptionOk
-  );
 });
 
 editPropertiesPopupPrice.addEventListener("input", function () {
@@ -111,8 +126,8 @@ editPropertiesPopupImg.addEventListener("input", function () {
 });
 
 const checksStringInput = (inputName, alertDivId, inputOk) => {
-  let errorArr = validateName(inputName.value);
-  if (errorArr.length === 0 || inputName.value.length < 1) {
+  let errorArr = validateImageName(inputName.value);
+  if (errorArr.length === 0) {
     // the text is ok
     inputName.classList.remove("is-invalid");
     document.getElementById(alertDivId).classList.add("d-none");
@@ -122,8 +137,29 @@ const checksStringInput = (inputName, alertDivId, inputOk) => {
     // the text is not ok
     inputName.classList.add("is-invalid");
     document.getElementById(alertDivId).classList.remove("d-none");
-    document.getElementById(alertDivId).innerHTML =
-      "Capital first letter. At least two letters";
+    document.getElementById(alertDivId).innerHTML = document.getElementById(
+      alertDivId
+    ).innerHTML = errorArr.join("<br>");
+    inputOk.value = false;
+  }
+
+  checkIfCanEnableBtn();
+};
+const checksDescriptionInput = (inputName, alertDivId, inputOk) => {
+  let errorArr = validateImageDescription(inputName.value);
+  if (errorArr.length === 0) {
+    // the text is ok
+    inputName.classList.remove("is-invalid");
+    document.getElementById(alertDivId).classList.add("d-none");
+
+    inputOk.value = true;
+  } else {
+    // the text is not ok
+    inputName.classList.add("is-invalid");
+    document.getElementById(alertDivId).classList.remove("d-none");
+    document.getElementById(alertDivId).innerHTML = document.getElementById(
+      alertDivId
+    ).innerHTML = errorArr.join("<br>");
     inputOk.value = false;
   }
 
@@ -165,7 +201,10 @@ const checkUrlInput = (inputName, alertDivId, inputOk) => {
     //  "only numbers please";
     inputOk.value = false;
   }
-
+  /*   if (!editPropertiesPopupImgDisplay) {
+    document.getElementById(alertDivId).innerHTML = "no image found";
+  }
+ */
   checkIfCanEnableBtn();
 };
 

@@ -5,6 +5,10 @@
          }
  */
 
+ body {
+   margin: 70px;
+ }
+
  .carusel {
    width: 100%;
    height: 66.6vh;
@@ -41,19 +45,6 @@
    }
  }
 
- .popup-wrapper {
-   position: fixed;
-   width: 100vw;
-   height: 100vh;
-   background-color: #0000008d;
-   top: 0;
-   left: 0;
-   z-index: 999;
- }
-
- .popup-wrapper div div {
-   width: 100%;
- }
 
  .card-img-top {
    height: 18.75em;
@@ -80,4 +71,8 @@
 
  h1 {
    font-family: "pattaya";
+ }
+
+ .modal-body {
+   background-image: url(https://media.cntraveler.com/photos/61eae2a9fe18edcbd885cb01/5:4/w_3790,h_3032,c_limit/Seychelles_GettyImages-1169388113.jpg);
  }
