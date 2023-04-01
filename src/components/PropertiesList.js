@@ -42,19 +42,24 @@ const createItem = (name, description, price, img, id) => {
   return `
   <li class="list-group-item">
     <div class="row">
-        <div class="col-md-2" >
+        <div class="col-md-2 listItem" >
         <img src="${img}" class="img-fluid" alt="${name}" id="propertyListCardImg-${id}" />
+             <!--       <button type="button" class="btn btn-info" id="propertyListModalBtn-${id}">Info</button>  -->
+
+
         </div>
+        
         <div class="col-md-8">
         <div class="card-body">
             <h5 class="card-title">${name}</h5> 
-            <h6 class="card-subtitle mb-2 text-muted">
-            ${price}
+            <h6 class="card-subtitle mb-2 text-success
+
+my-2 ">
+            $${price}
             </h6>
             <p class="card-text">
             ${description}
             </p>
-            <button type="button" class="btn btn-info" id="propertyListModalBtn-${id}">Info</button>
 
         </div>
         </div>

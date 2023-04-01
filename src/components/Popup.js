@@ -46,7 +46,7 @@ const initPopup = (selectedPropertyFromHomePage, editPropertyFromHomePage) => {
   editPropertiesPopupImgDisplay.src = selectedProperty.imgUrl;
   editPropertiesPopupName.value = selectedProperty.name;
   editPropertiesPopupDescription.value = selectedProperty.description;
-  editPropertiesPopupPrice.value = selectedProperty.price;
+  editPropertiesPopupPrice.value = ` ${selectedProperty.price}`;
   editPropertiesPopupCredit.value = selectedProperty.credit;
   editPropertiesPopupImg.value = selectedProperty.imgUrl;
   showPopup();

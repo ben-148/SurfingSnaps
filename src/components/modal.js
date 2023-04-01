@@ -12,7 +12,7 @@ const initModal = (selectedItemFromHomePage) => {
   modalDspImg.src = selectedItem.imgUrl;
   modalDspName.textContent = selectedItem.name;
   modalDspDescreption.textContent = selectedItem.description;
-  modalDspPrice.textContent = `price: ${selectedItem.price}`;
+  modalDspPrice.textContent = `price: $${selectedItem.price}`;
   modalDspId.textContent = "id: " + selectedItem.id;
   modalCredit.textContent = "credit: " + selectedItem.credit;
   modalDateCreate.textContent = "date created: " + selectedItem.createdAT;

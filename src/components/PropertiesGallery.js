@@ -61,7 +61,7 @@ const createCard = (name, description, price, img, id) => {
         </p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">${price}</li>
+        <li class="list-group-item text-success">$${price}</li>
 
       </ul>
 

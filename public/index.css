@@ -73,6 +73,20 @@
    font-family: "pattaya";
  }
 
+ h5 {
+   font-family: 'Lato',
+     sans-serif;
+   ;
+ }
+
  .modal-body {
    background-image: url(https://media.cntraveler.com/photos/61eae2a9fe18edcbd885cb01/5:4/w_3790,h_3032,c_limit/Seychelles_GettyImages-1169388113.jpg);
+ }
+
+ .card>img {
+   cursor: pointer;
+ }
+
+ .listItem>img {
+   cursor: pointer;
  }

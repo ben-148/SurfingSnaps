@@ -35,6 +35,9 @@
   <link rel="icon" type="image/x-icon" href="./assets/imgs/logoUpdated.jpeg">
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css" integrity="..."
+    crossorigin="anonymous" />
+
 
 
 
@@ -85,7 +88,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <!-- <h5 class="modal-title" id="modalTitle"></h5> -->
-              <h3>to sell your picture, insert some info</h3>
+              <h3>to sell your picture, insert this info. you can edit it anytime</h3>
 
               <button type="button" class="close" data-dismiss="modal">&times;</button>
 
@@ -123,8 +126,8 @@
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                       <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="editPropertiesPopupPrice" placeholder="Price" />
-                        <label for="editPropertiesPopupPrice">Price</label>
+                        <input type="text" class="form-control" id="editPropertiesPopupPrice" placeholder="$" />
+                        <label for="editPropertiesPopupPrice">Price in $</label>
                       </div>
                       <div class="alert alert-danger d-none col-md-6" role="alert" id="popup-alert-price">
 
@@ -238,29 +241,41 @@
 
 
 
-
     <div class="d-flex justify-content-between mb-2">
       <div>
+        <button type="button" class="btn btn-warning" id="homeDisplayGallery">Our Gallery
+          <!-- <i class="fa-light fa-images fa-bounce"></i> --> <i class="bi bi-card-image"></i> </button>
+
         <button type="button" class="btn btn-info" id="homeDisplayList">
-          <i class="bi bi-card-list"></i>
+          <i class="bi bi-card-list"></i> List mode
         </button>
-        <button type="button" class="btn btn-info" id="homeDisplayGallery">
-          <i class="bi bi-microsoft"></i>
+        <button type="button" class="btn btn-warning" id="homeDisplayCousel">
+          <i class="bi bi-collection-play"></i> "Carousel" Mode
         </button>
-        <button type="button" class="btn btn-info" id="homeDisplayCousel">
-          <i class="bi bi-file-earmark-slides"></i>
-        </button>
-        <button type="button" class="btn btn-info" id="homeDisplaySortASC">
-          <i class="bi bi-sort-alpha-down"></i>
-        </button>
-        <button type="button" class="btn btn-info" id="homeDisplaySortDESC">
-          <i class="bi bi-sort-alpha-up"></i>
-        </button>
+
+
       </div>
-      <form class="d-flex align-self-end" role="search">
+
+      <div class="d-flex justify-content-end mb-2">
+
+        <button type="button" class="btn btn-secondary " id="homeDisplaySortASC">
+          <i class="bi bi-sort-alpha-down"></i>sort a-z
+        </button>
+        <button type="button" class="btn btn-secondary " id="homeDisplaySortDESC">
+          <i class="bi bi-sort-alpha-up"></i>sort z-a
+        </button>
+
+        <form role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+            id="homeDisplaySearch" />
+        </form>
+      </div>
+      <!--       <form class="d-flex align-self-end" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
           id="homeDisplaySearch" />
       </form>
+
+ -->
     </div>
     <div id="propertiesGallery" class="d-none">
       <div class="row row-cols-1 row-cols-md-3 g-4" id="home-page-properties-gallery"></div>
@@ -348,7 +363,6 @@
               moments
               and creating art through photography.
 
-
               Our gallery features a diverse collection of high-quality photographs that celebrate the beauty of the
               world.
               From
@@ -356,8 +370,6 @@
               planet
               and the
               amazing people who inhabit it.
-
-
 
               In addition to browsing and purchasing photographs from our collection, we also provide a unique
               opportunity
