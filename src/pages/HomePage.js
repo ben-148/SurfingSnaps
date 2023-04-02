@@ -66,18 +66,39 @@ const initializeElements = () => {
   propertiesList = document.getElementById("propertiesList");
   propertiesCarusel = document.getElementById("propertiesCarusel");
   displayNow = propertiesCarusel; // choose who we want to display
-  displayToDisplay(displayNow);
+
+  displayToDisplay(
+    displayNow,
+    homeDisplayCousel,
+    homeDisplayGallery,
+    homeDisplayList
+  );
 };
 
 const initializeBtns = () => {
   homeDisplayList.addEventListener("click", () => {
-    displayToDisplay(propertiesList);
+    displayToDisplay(
+      propertiesList,
+      homeDisplayList,
+      homeDisplayCousel,
+      homeDisplayGallery
+    );
   });
   homeDisplayGallery.addEventListener("click", () => {
-    displayToDisplay(propertiesGallery);
+    displayToDisplay(
+      propertiesGallery,
+      homeDisplayGallery,
+      homeDisplayCousel,
+      homeDisplayList
+    );
   });
   homeDisplayCousel.addEventListener("click", () => {
-    displayToDisplay(propertiesCarusel);
+    displayToDisplay(
+      propertiesCarusel,
+      homeDisplayCousel,
+      homeDisplayList,
+      homeDisplayGallery
+    );
   });
   document
     .getElementById("homeDisplaySortASC")
@@ -106,13 +127,17 @@ const initializeBtns = () => {
     });
 };
 
-const displayToDisplay = (toDisplay) => {
+const displayToDisplay = (toDisplay, btnToHide, btnToShow, btnToShow2) => {
   // hide what we currently showing
   displayNow.classList.remove("d-block");
   displayNow.classList.add("d-none");
+  btnToHide.classList.remove("d-block");
+  btnToHide.classList.add("d-none");
   // show what we want to display now
   toDisplay.classList.remove("d-none");
   toDisplay.classList.add("d-block");
+  btnToShow.classList.remove("d-none");
+  btnToShow2.classList.remove("d-none");
   //this is what we displaying now
   displayNow = toDisplay;
 };

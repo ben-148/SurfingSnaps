@@ -26,6 +26,25 @@ const createData = () => {
     ),
     new Property(
       id++,
+      "Laura Enever Tackles a Challenging Wave",
+      400,
+      `Laura Enever has had a busy year chasing down the world's most terrifying waves for her soon-to-be-released movie "Undone". Here she's seen in the belly of a beast somewhere along the coast of New South Wales
+
+`,
+      "https://www.surfer.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_1400/MTk2Mjc3MTUzMzA0NjgzODI0/laura-enever-new-south-wales.webp",
+      "Matt Dunbar"
+    ),
+    new Property(
+      id++,
+      "Ryan Burch Puts on a Stylish Display of Surfing",
+      400,
+      `This captivating photo captures professional surfer Ryan Burch showing off his unique and fluid style while riding a wave with effortless grace. Burch is known for his unconventional approach to surfing, favoring retro-inspired boards and creative maneuvers that challenge traditional surfing norms. In this photo, he can be seen executing a smooth bottom turn while carving through the wave with a relaxed and confident stance. The bright blue color of the wave and Burch's colorful wetsuit add a playful and cheerful vibe to the photo, perfectly reflecting Burch's innovative and creative approach to the sport.
+`,
+      "https://www.surfer.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_1400/MTk2Mjc3MTUzODM3NTU3MDQw/ryan-burch.webp",
+      "Nick Liotta"
+    ),
+    new Property(
+      id++,
       "Surfer Conquering a Massive Wave",
       350,
       `This incredible photo captures a lone surfer standing confidently behind an enormous wave, ready to take on the challenge. The scale of the wave is stunning, with its towering height and deep blue color creating a sense of awe and wonder. Despite the danger and difficulty of the wave, the surfer appears calm and focused, their eyes fixed on the horizon as they prepare to ride the wave with skill and precision. This photo showcases the courage and determination required to tackle the biggest waves, as well as the raw power and beauty of the ocean.`,

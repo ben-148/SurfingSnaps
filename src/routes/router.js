@@ -31,7 +31,12 @@ function handlePageChange(pageToDisplay) {
     case PAGES.HOME:
       HOMEPAGELINK.classList.remove("d-none");
       HOMEPAGELINK.classList.add("d-block");
-      displayToDisplay(propertiesCarusel);
+      displayToDisplay(
+        propertiesCarusel,
+        homeDisplayCousel,
+        homeDisplayGallery,
+        homeDisplayList
+      );
 
       break;
     case PAGES.ABOUT:
