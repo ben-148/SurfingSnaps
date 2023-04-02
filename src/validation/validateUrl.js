@@ -10,7 +10,7 @@ const validateUrl = (value) => {
     reg.test(value)
   );
 
-  return validate(reg, value, 5, 255).map((err) => `Url is ${err}`);
+  return validate(reg, value, 5, 1000).map((err) => `Url is ${err}`);
 };
 
 export default validateUrl;

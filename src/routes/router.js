@@ -1,4 +1,5 @@
 import PAGES from "../models/pageModel.js";
+import { displayToDisplay } from "../pages/HomePage.js";
 
 /* Out pages */
 const HOMEPAGELINK = document.getElementById(PAGES.HOME);
@@ -30,6 +31,8 @@ function handlePageChange(pageToDisplay) {
     case PAGES.HOME:
       HOMEPAGELINK.classList.remove("d-none");
       HOMEPAGELINK.classList.add("d-block");
+      displayToDisplay(propertiesCarusel);
+
       break;
     case PAGES.ABOUT:
       ABOUTUSPAGELINK.classList.remove("d-none");

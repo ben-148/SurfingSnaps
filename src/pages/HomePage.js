@@ -180,4 +180,4 @@ const editProperty = () => {
   updateDisplays(); // update html
 };
 
-export { showNewPopup };
+export { showNewPopup, displayToDisplay };
