@@ -8,6 +8,7 @@ let isConnected;
 let showPopup;
 
 let navAddNewPropertyLink;
+let cartLink;
 
 const navBeforeLogin = document.getElementById("navBeforeLogin");
 const navAfterLogin = document.getElementById("navAfterLogin");
@@ -19,6 +20,8 @@ const initializeNavbar = (showPopupFromApp) => {
   if (isConnected) {
     navBeforeLogin.classList.add("d-none");
     navAfterLogin.classList.remove("d-none");
+    cartLink = document.getElementById("nav-cart-link");
+    cartLink.classList.remove("d-none");
   }
   showPopup = showPopupFromApp;
   /* nav */

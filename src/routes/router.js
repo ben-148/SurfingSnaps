@@ -4,7 +4,7 @@ import { displayToDisplay } from "../pages/HomePage.js";
 /* Out pages */
 const HOMEPAGELINK = document.getElementById(PAGES.HOME);
 const ABOUTUSPAGELINK = document.getElementById(PAGES.ABOUT);
-const CONTACTUSPAGELINK = document.getElementById(PAGES.CONTACT);
+const CARTPAGELINK = document.getElementById(PAGES.CART);
 const LOGINTUSPAGELINK = document.getElementById(PAGES.LOGIN);
 const REGISTERUSPAGELINK = document.getElementById(PAGES.REGISTER);
 const PROFILEPAGELINK = document.getElementById(PAGES.PROFILE);
@@ -14,14 +14,14 @@ function handlePageChange(pageToDisplay) {
   /* hide all pages */
   HOMEPAGELINK.classList.remove("d-block");
   ABOUTUSPAGELINK.classList.remove("d-block");
-  CONTACTUSPAGELINK.classList.remove("d-block");
+  CARTPAGELINK.classList.remove("d-block");
   LOGINTUSPAGELINK.classList.remove("d-block");
   REGISTERUSPAGELINK.classList.remove("d-block");
   PROFILEPAGELINK.classList.remove("d-block");
   PAGE404PAGELINK.classList.remove("d-block");
   HOMEPAGELINK.classList.add("d-none");
   ABOUTUSPAGELINK.classList.add("d-none");
-  CONTACTUSPAGELINK.classList.add("d-none");
+  CARTPAGELINK.classList.add("d-none");
   LOGINTUSPAGELINK.classList.add("d-none");
   REGISTERUSPAGELINK.classList.add("d-none");
   PROFILEPAGELINK.classList.add("d-none");
@@ -43,9 +43,9 @@ function handlePageChange(pageToDisplay) {
       ABOUTUSPAGELINK.classList.remove("d-none");
       ABOUTUSPAGELINK.classList.add("d-block");
       break;
-    case PAGES.CONTACT:
-      CONTACTUSPAGELINK.classList.remove("d-none");
-      CONTACTUSPAGELINK.classList.add("d-block");
+    case PAGES.CART:
+      CARTPAGELINK.classList.remove("d-none");
+      CARTPAGELINK.classList.add("d-block");
       break;
     case PAGES.LOGIN:
       LOGINTUSPAGELINK.classList.remove("d-none");

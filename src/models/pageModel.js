@@ -1,7 +1,7 @@
 const PAGES = {
   HOME: "home-page",
   ABOUT: "about-us",
-  CONTACT: "contact-us",
+  CART: "cart-page",
   REGISTER: "register-page",
   LOGIN: "login-page",
   PROFILE: "profile-page",
@@ -15,7 +15,7 @@ export default PAGES; // let other js pages to access this variable/object
 // const PAGESARR = [
 //   "home-page",
 //   "about-us",
-//   "contact-us",
+//   "cart-page",
 //   "register-page",
 //   "login-page",
 // ];

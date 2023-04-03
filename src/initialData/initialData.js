@@ -45,6 +45,16 @@ const createData = () => {
     ),
     new Property(
       id++,
+      "Billy Kemper Charges a Massive Wave at Jaws",
+      400,
+      `This incredible photo captures professional surfer Billy Kemper pushing the limits of big wave surfing as he takes on a towering wave at the infamous Jaws break in Maui, Hawaii. The wave is massive, with a wall of water that seems to dwarf Kemper as he charges down the face with impressive speed and control. The bright blue color of the wave contrasts sharply with the white spray and foam, creating a stunning visual effect that highlights the raw power and beauty of the ocean. Kemper's focused expression and poised stance demonstrate the skill and courage required to surf waves of this magnitude, making this photo a true testament to the awe-inspiring sport of big wave surfing.
+
+`,
+      "https://www.surfer.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_1400/MTk2Mjc3MTUzNTcyMzMyODQ4/billy-kemper.webp",
+      "Domenic Mosqueira"
+    ),
+    new Property(
+      id++,
       "Surfer Conquering a Massive Wave",
       350,
       `This incredible photo captures a lone surfer standing confidently behind an enormous wave, ready to take on the challenge. The scale of the wave is stunning, with its towering height and deep blue color creating a sense of awe and wonder. Despite the danger and difficulty of the wave, the surfer appears calm and focused, their eyes fixed on the horizon as they prepare to ride the wave with skill and precision. This photo showcases the courage and determination required to tackle the biggest waves, as well as the raw power and beauty of the ocean.`,
