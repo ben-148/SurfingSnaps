@@ -6,5 +6,4 @@ const getDate = () => {
   return `${day}.${month}.${year}`; // return the date
 };
 
-console.log(getDate());
 export { getDate };

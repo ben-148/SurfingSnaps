@@ -116,11 +116,6 @@ const initializeBtns = () => {
       let regex = new RegExp("^" + ev.target.value, "i");
       propertiesArr = originalPropertiesArr.filter((item) => {
         let reg = regex.test(item.name);
-        console.log(
-          "🚀 ~ file: HomePage.js:85 ~ propertiesArr=originalPropertiesArr.filter ~ reg:",
-          reg
-        );
-        // console.log("item.name", item.name, " reg", reg);
         return reg;
       });
       updateDisplays();
@@ -158,7 +153,7 @@ const deleteProperty = (id) => {
     (item) => item.id !== id
   );
   saveToLocalStorage(originalPropertiesArr);
-  propertiesArr = propertiesArr.filter((item) => item.id !== id); //delete property by index
+  propertiesArr = propertiesArr.filter((item) => item.id !== id); //delete property by id
   updateDisplays();
 };
 

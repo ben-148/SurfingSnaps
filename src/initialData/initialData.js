@@ -1,5 +1,4 @@
 import Property from "../models/Property.js";
-// import getDate from "../utils/getDate.js";
 
 let id = 1;
 let nextUserId = 1;

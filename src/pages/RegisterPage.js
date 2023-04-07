@@ -119,7 +119,6 @@ inputConfirmPassword.addEventListener("input", () => {
 
 const checkFirstNameInput = () => {
   let errorArr = validateName(inputFirstName.value);
-  //   console.log(reg.test(inputFirstName.value));
   if (errorArr.length === 0) {
     //the text is ok
     inputFirstName.classList.remove("is-invalid");
@@ -197,7 +196,6 @@ const checkNumberInputs = (numberInput, alertDivId) => {
     // the text is ok
     numberInput.classList.remove("is-invalid");
     document.getElementById(alertDivId).classList.add("d-none");
-    console.log("true");
     return true;
   } else {
     // the text is not ok
@@ -262,14 +260,6 @@ const checkIfCanEnableBtn = () =>
     phoneOk
   ));
 
-// const checkIfCanEnableBtn = () => {
-//   if (fNameOk && emailOk && passwordOk) {
-//     btnRegister.disabled = false;
-//   } else {
-//     btnRegister.disabled = true;
-//   }
-// };
-
 btnRegister.addEventListener("click", () => {
   if (!(fNameOk && lNameOk && emailOk && passwordOk && confirmPasswordOk)) {
     //if someone changed the html from dev tools
@@ -303,19 +293,10 @@ btnRegister.addEventListener("click", () => {
   if (!users) {
     //the first user
     users = [newUser];
-    // let user = new User(inputFirstName.value, inputEmail.value, inputPassword.value);
-    // users = [user]
     localStorage.setItem("users", JSON.stringify(users));
-    /*
-      JSON.stringify(users) - convert array of objects to string
-      localStorage.setItem - store the json string to localStorage with 
-        key users 
-        and value users as json string
-    */
   } else {
     //we have users
-    users = JSON.parse(users); // convert from string to array of objects
-    // console.log("users from localStorage", users);
+    users = JSON.parse(users);
     for (let user of users) {
       if (user.email === inputEmail.value) {
         //display msg - email already exists
@@ -323,7 +304,6 @@ btnRegister.addEventListener("click", () => {
         return;
       }
     }
-    //user provided new email
     users = [...users, newUser];
     localStorage.setItem("users", JSON.stringify(users));
   }

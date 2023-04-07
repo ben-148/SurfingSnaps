@@ -15,7 +15,7 @@ const deleteProperty = (id) => {
     (item) => item.id !== id
   );
   saveToLocalStorage(originalPropertiesArr);
-  propertiesArr = propertiesArr.filter((item) => item.id !== id); //delete property by index
+  propertiesArr = propertiesArr.filter((item) => item.id !== id); //delete property by id
 };
 
 const saveToLocalStorage = (arrToSave) => {

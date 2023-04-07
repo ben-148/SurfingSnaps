@@ -43,7 +43,7 @@ window.addEventListener("load", () => {
   let token = localStorage.getItem("token");
   if (users && token) {
     //we have users
-    users = JSON.parse(users); // convert from string to array of objects
+    users = JSON.parse(users);
     token = JSON.parse(token);
     let user = users.find((item) => item.id === token.id);
     if (user) {
@@ -144,7 +144,6 @@ inputConfirmPassword.addEventListener("input", () => {
 
 const checkFirstNameInput = () => {
   let errorArr = validateName(inputFirstName.value);
-  //   console.log(reg.test(inputFirstName.value));
   if (errorArr.length === 0) {
     //the text is ok
     inputFirstName.classList.remove("is-invalid");
@@ -224,7 +223,6 @@ const checkNumberInputs = (numberInput, alertDivId) => {
     // the text is ok
     numberInput.classList.remove("is-invalid");
     document.getElementById(alertDivId).classList.add("d-none");
-    console.log("true");
     return true;
   } else {
     // the text is not ok
@@ -312,13 +310,12 @@ btnProfile.addEventListener("click", () => {
   let users = localStorage.getItem("users");
   let token = localStorage.getItem("token");
   if (users && token) {
-    //we have users
-    users = JSON.parse(users); // convert from string to array of objects
+    users = JSON.parse(users);
     token = JSON.parse(token);
     let userEmail = users.find((item) => item.email === inputEmail.value);
     let user = users.find((item) => item.id === token.id);
     if (userEmail && user.id !== userEmail.id) {
-      //the email already token
+      //the email already in use
       showToast("The email already taken", false);
       return;
     }

@@ -8,16 +8,4 @@ const PAGES = {
   PAGE404: "page-not-found-page",
 };
 
-export default PAGES; // let other js pages to access this variable/object
-
-// document.getElementById(PAGES.LOGIN).style.display = "block";
-
-// const PAGESARR = [
-//   "home-page",
-//   "about-us",
-//   "cart-page",
-//   "register-page",
-//   "login-page",
-// ];
-
-// document.getElementById(PAGESARR[0]).style.display = "block";
+export default PAGES;

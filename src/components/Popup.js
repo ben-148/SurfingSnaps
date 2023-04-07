@@ -52,8 +52,8 @@ const initPopup = (selectedPropertyFromHomePage, editPropertyFromHomePage) => {
   showPopup();
 };
 
-let myModal = document.getElementById("modal1"); // Get the modal element
-let myModalInstance = new bootstrap.Modal(myModal); // Create a modal instance
+let myModal = document.getElementById("modal1");
+let myModalInstance = new bootstrap.Modal(myModal);
 
 const showPopup = () => {
   myModalInstance.show();
@@ -179,7 +179,6 @@ const checkPriceInput = (inputName, alertDivId, inputOk) => {
     inputName.classList.add("is-invalid");
     document.getElementById(alertDivId).classList.remove("d-none");
     document.getElementById(alertDivId).innerHTML = errorArr.join("<br>");
-    //  "only numbers please";
     inputOk.value = false;
   }
 
@@ -198,13 +197,8 @@ const checkUrlInput = (inputName, alertDivId, inputOk) => {
     inputName.classList.add("is-invalid");
     document.getElementById(alertDivId).classList.remove("d-none");
     document.getElementById(alertDivId).innerHTML = errorArr.join("<br>");
-    //  "only numbers please";
     inputOk.value = false;
   }
-  /*   if (!editPropertiesPopupImgDisplay) {
-    document.getElementById(alertDivId).innerHTML = "no image found";
-  }
- */
   checkIfCanEnableBtn();
 };
 

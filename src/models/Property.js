@@ -15,7 +15,7 @@ class Property {
     this.description = description;
     this.imgUrl = imgUrl;
     this.credit = credit;
-    this.createdAT = getDate(); // uncomment this line
+    this.createdAT = getDate();
   }
 }
 

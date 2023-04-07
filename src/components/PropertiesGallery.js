@@ -1,9 +1,15 @@
+import showToast from "../services/Toast.js";
+import { handlePageChange } from "../routes/router.js";
+import PAGES from "../models/pageModel.js";
+import checkIfConnected from "../utils/checkIfConnected.js";
+
 let propertiesArr;
 let galleryDiv;
 let isAdmin;
 let deleteProperty;
 let showPopup;
 let showModal;
+let isConnected;
 
 //this function will transfer data from homepage to this page
 const initialPropertiesGallery = (
@@ -20,14 +26,10 @@ const initialPropertiesGallery = (
   showModal = showModalFromHomePage;
 
   updatePropertiesGallery(propertiesArrFromHomePage);
+  isConnected = checkIfConnected();
 };
 
 const updatePropertiesGallery = (propertiesArrFromHomePage) => {
-  /*
-    this function will get data from homepage and create new gallery.
-    if the gallery already exists it will remove the old one and
-    create new one
-  */
   propertiesArr = propertiesArrFromHomePage;
   createGallery();
 };
@@ -66,7 +68,7 @@ const createCard = (name, description, price, img, id) => {
       </ul>
 
       <div class="card-body">
-<button type="button" class="btn btn-success w-100">
+<button type="button" class="btn btn-success w-100" id="propertyGalleryBuyBtn-${id}" >
           <i class="bi bi-currency-dollar"></i> Buy now
         </button>
         ${isAdmin ? adminBtns : ""}
@@ -79,12 +81,8 @@ const createCard = (name, description, price, img, id) => {
 };
 
 const getIdFromClick = (ev) => {
-  let idFromId = ev.target.id.split("-"); // split the id to array
+  let idFromId = ev.target.id.split("-");
   if (!ev.target.id) {
-    /*
-        if press on icon then there is no id
-        then we need to take the id of the parent which is btn
-      */
     idFromId = ev.target.parentElement.id.split("-");
   }
   return idFromId[1];
@@ -100,10 +98,15 @@ const handleEditBtnClick = (ev) => {
 
 const handleModalBtnClick = (ev) => {
   showModal(getIdFromClick(ev));
-  var myModal = document.getElementById("modal2"); // Get the modal element
-  var myModalInstance = new bootstrap.Modal(myModal); // Create a modal instance
+  let myModal = document.getElementById("modal2");
+  let myModalInstance = new bootstrap.Modal(myModal);
 
-  myModalInstance.show(); // Show the modal
+  myModalInstance.show();
+};
+
+const handleBuyBtnClick = () => {
+  showToast("it's fake site :) you going 404..", false);
+  handlePageChange(PAGES.PAGE404);
 };
 
 const clearEventListeners = (idKeyword, handleFunction) => {
@@ -118,9 +121,10 @@ const clearEventListeners = (idKeyword, handleFunction) => {
 const createGallery = () => {
   let innerStr = "";
   clearEventListeners("propertyGalleryDeleteBtn", handleDeleteBtnClick);
-  //clear event listeners for edit btns
   clearEventListeners("propertyGalleryEditBtn", handleEditBtnClick);
   clearEventListeners("propertyGalleryModalBtn", handleModalBtnClick);
+  clearEventListeners("propertyGalleryCardImg", handleModalBtnClick);
+  clearEventListeners("propertyGalleryBuyBtn", handleBuyBtnClick);
   for (let property of propertiesArr) {
     innerStr += createCard(
       property.name,
@@ -131,15 +135,15 @@ const createGallery = () => {
     );
   }
   galleryDiv.innerHTML = innerStr;
-  // add event listeners for delete btns
+  // add event listeners for  btns
   createBtnEventListener("propertyGalleryDeleteBtn", handleDeleteBtnClick);
-  // add event listeners for edit btns
   createBtnEventListener("propertyGalleryEditBtn", handleEditBtnClick);
   createBtnEventListener("propertyGalleryModalBtn", handleModalBtnClick);
   createBtnEventListener("propertyGalleryCardImg", handleModalBtnClick);
+  createBtnEventListener("propertyGalleryBuyBtn", handleBuyBtnClick);
 };
 
-//Creates event listener for the delete buttons
+//Creates event listener for the  buttons
 const createBtnEventListener = (idKeyword, handleFunction) => {
   let btns = document.querySelectorAll(`[id^='${idKeyword}-']`);
   //add events to new btns

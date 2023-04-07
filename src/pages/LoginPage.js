@@ -19,10 +19,6 @@ loginEmailInput.addEventListener("input", () => {
     document.getElementById("login-alert-email").classList.remove("d-none");
     document.getElementById("login-alert-email").innerHTML =
       errorArr.join("<br>");
-    /*
-        let str = errorArr.join("<br>")
-        document.getElementById("login-alert-email").innerHTML = str
-      */
   }
 });
 
@@ -38,10 +34,6 @@ loginPasswordInput.addEventListener("input", () => {
     document.getElementById("login-alert-password").classList.remove("d-none");
     document.getElementById("login-alert-password").innerHTML =
       errorArr.join("<br>");
-    /*
-        let str = errorArr.join("<br>")
-        document.getElementById("login-alert-password").innerHTML = str
-      */
   }
 });
 
@@ -54,7 +46,6 @@ loginBtn.addEventListener("click", () => {
   }
   let users = JSON.parse(localStorage.getItem("users"));
   if (!users) {
-    //users === null
     return;
   }
   let user = users.find(
@@ -63,7 +54,6 @@ loginBtn.addEventListener("click", () => {
       item.password === loginPasswordInput.value
   );
   if (!user) {
-    console.log("invalid email and/or password");
     return;
   }
   //remember who connected
@@ -76,6 +66,5 @@ loginBtn.addEventListener("click", () => {
       isAdmin: user.isAdmin,
     })
   );
-  // handlePageChange(PAGES.HOME);
   location.reload(); // refresh the page
 });

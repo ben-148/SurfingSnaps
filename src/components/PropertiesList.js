@@ -1,9 +1,14 @@
+import showToast from "../services/Toast.js";
+import { handlePageChange } from "../routes/router.js";
+import PAGES from "../models/pageModel.js";
+
 let propertiesArr;
 let listDiv;
 let isAdmin;
 let deleteProperty;
 let showPopup;
 let showModal;
+
 //this function will transfer data from homepage to this page
 const initialPropertiesList = (
   propertiesArrFromHomePage,
@@ -21,11 +26,6 @@ const initialPropertiesList = (
 };
 
 const updatePropertiesList = (propertiesArrFromHomePage) => {
-  /*
-    this function will get data from homepage and create new list.
-    if the list already exists it will remove the old one and
-    create new one
-  */
   propertiesArr = propertiesArrFromHomePage;
   createList();
 };
@@ -44,7 +44,6 @@ const createItem = (name, description, price, img, id) => {
     <div class="row">
         <div class="col-md-2 listItem" >
         <img src="${img}" class="img-fluid" alt="${name}" id="propertyListCardImg-${id}" />
-             <!--       <button type="button" class="btn btn-info" id="propertyListModalBtn-${id}">Info</button>  -->
 
 
         </div>
@@ -64,7 +63,7 @@ my-2 ">
         </div>
         </div>
         <div class="col-md-2">
-        <button type="button" class="btn btn-success w-100">
+        <button type="button" class="btn btn-success w-100" id="propertyListBuyBtn-${id}" >
           <i class="bi bi-currency-dollar"></i> Buy now
         </button>
         ${isAdmin ? adminBtns : ""}
@@ -75,12 +74,8 @@ my-2 ">
 };
 
 const getIdFromClick = (ev) => {
-  let idFromId = ev.target.id.split("-"); // split the id to array
+  let idFromId = ev.target.id.split("-");
   if (!ev.target.id) {
-    /*
-        if press on icon then there is no id
-        then we need to take the id of the parent which is btn
-      */
     idFromId = ev.target.parentElement.id.split("-");
   }
   return idFromId[1];
@@ -95,10 +90,15 @@ const handleEditBtnClick = (ev) => {
 };
 const handleModalBtnClick = (ev) => {
   showModal(getIdFromClick(ev));
-  var myModal = document.getElementById("modal2"); // Get the modal element
-  var myModalInstance = new bootstrap.Modal(myModal); // Create a modal instance
+  var myModal = document.getElementById("modal2");
+  var myModalInstance = new bootstrap.Modal(myModal);
 
-  myModalInstance.show(); // Show the modal
+  myModalInstance.show();
+};
+
+const handleBuyBtnClick = () => {
+  showToast("it's fake site :) you going 404..", false);
+  handlePageChange(PAGES.PAGE404);
 };
 
 const clearEventListeners = (idKeyword, handleFunction) => {
@@ -108,8 +108,6 @@ const clearEventListeners = (idKeyword, handleFunction) => {
   for (let btn of btnsBefore) {
     btn.removeEventListener("click", handleFunction);
   }
-
-  // showModal();
 };
 
 const createList = () => {
@@ -118,6 +116,7 @@ const createList = () => {
   clearEventListeners("propertyListDeleteBtn", handleDeleteBtnClick);
   //clear event listeners for edit btns
   clearEventListeners("propertyListEditBtn", handleEditBtnClick);
+  clearEventListeners("propertyListCardImg", handleModalBtnClick);
 
   //create new elements and remove old ones
   for (let property of propertiesArr) {
@@ -130,15 +129,15 @@ const createList = () => {
     );
   }
   listDiv.innerHTML = innerStr;
-  // add event listeners for delete btns
+  // add event listeners for  btns
   createBtnEventListener("propertyListDeleteBtn", handleDeleteBtnClick);
-  // add event listeners for edit btns
   createBtnEventListener("propertyListEditBtn", handleEditBtnClick);
-  createBtnEventListener("propertyListModalBtn", handleModalBtnClick);
+  // add event listeners for img
   createBtnEventListener("propertyListCardImg", handleModalBtnClick);
+  createBtnEventListener("propertyListBuyBtn", handleBuyBtnClick);
 };
 
-//Creates event listener for the delete buttons
+//Creates event listener for the  buttons
 const createBtnEventListener = (idKeyword, handleFunction) => {
   let btns = document.querySelectorAll(`[id^='${idKeyword}-']`);
   //add events to new btns

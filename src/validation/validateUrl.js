@@ -5,10 +5,6 @@ const validateUrl = (value) => {
     /^https?:\/\/(?:www\.)?[\w.-]+(?:\.[\w.-]+)*[\w\-._~:/?#[\]@!$&'()*+,;=%_]*$/,
     "i"
   );
-  console.log(
-    "🚀 ~ file: validateUrl.js:8 ~ validateUrl ~ reg:",
-    reg.test(value)
-  );
 
   return validate(reg, value, 5, 1000).map((err) => `Url is ${err}`);
 };

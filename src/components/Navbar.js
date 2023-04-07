@@ -24,6 +24,7 @@ const initializeNavbar = (showPopupFromApp) => {
     cartLink.classList.remove("d-none");
   }
   showPopup = showPopupFromApp;
+
   /* nav */
   navAddNewPropertyLink = document.getElementById("nav-add-new-property-link");
   if (!isAdmin) {
