@@ -41,6 +41,11 @@ const initPopup = (selectedPropertyFromHomePage, editPropertyFromHomePage) => {
     selectedProperty = selectedPropertyFromHomePage;
   } else {
     selectedProperty = new Property(getNextId(), "", "", "", "", "");
+    titleOk = { value: false };
+    priceOk = { value: false };
+    descriptionOk = { value: false };
+    creditOk = { value: false };
+    imgOk = { value: false };
   }
   editProperty = editPropertyFromHomePage;
   editPropertiesPopupImgDisplay.src = selectedProperty.imgUrl;

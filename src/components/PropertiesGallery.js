@@ -24,9 +24,9 @@ const initialPropertiesGallery = (
   deleteProperty = deletePropertyFromHomePage;
   showPopup = showPopupFromHomePage;
   showModal = showModalFromHomePage;
+  isConnected = checkIfConnected();
 
   updatePropertiesGallery(propertiesArrFromHomePage);
-  isConnected = checkIfConnected();
 };
 
 const updatePropertiesGallery = (propertiesArrFromHomePage) => {
@@ -43,8 +43,9 @@ const createCard = (name, description, price, img, id) => {
     <i class="bi bi-x-circle-fill"></i> Delete
   </button>
   `;
+
   let propertieCard = `
-  <div class="col" >
+  <div class="col align-items-stretch" >
     <div class="card" id="${id}" data-id="${id}" >
 
 
@@ -55,7 +56,7 @@ const createCard = (name, description, price, img, id) => {
         />
 
       <div class="card-body">
-        <h5 class="card-title">${name}</h5>                    <button type="button" class="btn btn-info" id="propertyGalleryModalBtn-${id}">Info</button>
+        <h5 class="card-title">${name}</h5>                    <button type="button" class="btn btn-outline-info" id="propertyGalleryModalBtn-${id}">Info</button>
 
 
         <p class="card-text">
@@ -63,7 +64,12 @@ const createCard = (name, description, price, img, id) => {
         </p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item text-success">$${price}</li>
+        <li class="list-group-item text-success">$${price}                 ${
+    isConnected
+      ? `<button type="button" class="btn btn-info " id="propertyGalleryCartBtn-${id}"><i class="bi bi-cart-plus"></i> Add to cart</button>`
+      : ""
+  }     
+</li>
 
       </ul>
 
@@ -71,8 +77,8 @@ const createCard = (name, description, price, img, id) => {
 <button type="button" class="btn btn-success w-100" id="propertyGalleryBuyBtn-${id}" >
           <i class="bi bi-currency-dollar"></i> Buy now
         </button>
-        ${isAdmin ? adminBtns : ""}
-      </div>
+${isAdmin ? adminBtns : ""}
+ </div>
     </div>
   </div>
   `;
@@ -105,8 +111,18 @@ const handleModalBtnClick = (ev) => {
 };
 
 const handleBuyBtnClick = () => {
-  showToast("it's fake site :) you going 404..", false);
+  showToast("it's fake site :) you going 404..", true);
   handlePageChange(PAGES.PAGE404);
+  setTimeout(() => {
+    handlePageChange(PAGES.HOME);
+  }, 3500);
+};
+const handleCartBtnClick = () => {
+  showToast("WE WORKING ON IT ;)", true);
+  handlePageChange(PAGES.CART);
+  setTimeout(() => {
+    handlePageChange(PAGES.HOME);
+  }, 4000);
 };
 
 const clearEventListeners = (idKeyword, handleFunction) => {
@@ -125,6 +141,7 @@ const createGallery = () => {
   clearEventListeners("propertyGalleryModalBtn", handleModalBtnClick);
   clearEventListeners("propertyGalleryCardImg", handleModalBtnClick);
   clearEventListeners("propertyGalleryBuyBtn", handleBuyBtnClick);
+  clearEventListeners("propertyGalleryCartBtn", handleCartBtnClick);
   for (let property of propertiesArr) {
     innerStr += createCard(
       property.name,
@@ -141,6 +158,7 @@ const createGallery = () => {
   createBtnEventListener("propertyGalleryModalBtn", handleModalBtnClick);
   createBtnEventListener("propertyGalleryCardImg", handleModalBtnClick);
   createBtnEventListener("propertyGalleryBuyBtn", handleBuyBtnClick);
+  createBtnEventListener("propertyGalleryCartBtn", handleCartBtnClick);
 };
 
 //Creates event listener for the  buttons
