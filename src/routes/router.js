@@ -59,13 +59,22 @@ function handlePageChange(pageToDisplay) {
       PROFILEPAGELINK.classList.remove("d-none");
       PROFILEPAGELINK.classList.add("d-block");
       break;
+    case PAGES.PAGE404:
+      PAGE404PAGELINK.classList.remove("d-none");
+      PAGE404PAGELINK.classList.add("d-block");
+      setTimeout(() => {
+        handlePageChange(PAGES.HOME);
+      }, 3500);
+      break;
     default:
       PAGE404PAGELINK.classList.remove("d-none");
       PAGE404PAGELINK.classList.add("d-block");
+      setTimeout(() => {
+        handlePageChange(PAGES.HOME);
+      }, 3500);
+
       break;
   }
 }
 
-function anotherFunction() {}
-
-export { handlePageChange, anotherFunction };
+export { handlePageChange };
