@@ -97,8 +97,11 @@ const handleModalBtnClick = (ev) => {
 };
 
 const handleBuyBtnClick = () => {
-  showToast("it's fake site :) you going 404..", false);
+  showToast("it's fake site :) you going 404..", true);
   handlePageChange(PAGES.PAGE404);
+  setTimeout(() => {
+    handlePageChange(PAGES.HOME);
+  }, 3500);
 };
 
 const clearEventListeners = (idKeyword, handleFunction) => {

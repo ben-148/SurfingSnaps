@@ -1,4 +1,4 @@
-# PicPort
+# SurfingSnaps
 
 The project is a website for selling surfing photos, with visually appealing forms to display the photos. It includes a registration and login system for users to create accounts. The website is built using HTML, CSS, and JavaScript, and Bootstrap librarie for styling features.
 
